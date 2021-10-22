@@ -12,6 +12,23 @@
 </template>
 
 <style scoped>
+    @media only screen and (max-height: 767px) {
+        .wavespunks-main {
+            background-size: 500px 500px;
+            height: 500px !important;
+        }
+
+        .wavespunks-logo {
+            height: 100px;
+            width: 100px;
+        }
+
+        .wavespunks-text {
+            font-size: 25px !important;
+            line-height: 67px !important;
+        }
+    }
+
     @media only screen and (max-width: 767px) {
         .wavespunks-main {
             background-size: 500px 500px;
