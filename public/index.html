@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="apple-mobile-web-app-title" content="WavesPunks">
+    <meta name="application-name" content="WavesPunks">
+    <meta name="theme-color" content="#000000">
+    <meta name="Description" content="The first native NFT collection on Waves blockchain. Not just another punks, but the Crypto Chronicles. Embrace the history!">
+
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="<%= BASE_URL %>preview.png">
+    <meta property="og:title" content="WavesPunks">
+    <meta property="og:description" content="The first native NFT collection on Waves blockchain. Not just another punks, but the Crypto Chronicles. Embrace the history!">
+    <meta property="og:site_name" content="WavesPunks">
+    <meta property="og:url" content="https://wavespunks.com">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@WavesPunks">
+    <meta name="twitter:creator" content="@WavesPunks">
+    <meta name="twitter:title" content="WavesPunks">
+    <meta name="twitter:description" content="The first native NFT collection on Waves blockchain. Not just another punks, but the Crypto Chronicles. Embrace the history!">
+    <meta name="twitter:image" content="<%= BASE_URL %>preview.png">
+
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>WavesPunks</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XX07DBTMY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-8XX07DBTMY');
+    </script>
+
+    <!-- Twitter universal website tag code -->
+    <script>
+        !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+        },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+        a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+        // Insert Twitter Pixel ID and Standard Event data below
+        twq('init','o6yhi');
+        twq('track','PageView');
+    </script>
+    <!-- End Twitter universal website tag code -->
+</head>
+
+<body>
+    <noscript>
+        <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+                Please enable it to continue.</strong>
+    </noscript>
+
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+
+    <script>
+        window["ym"] = window["ym"] || function() {(window["ym"].a = window["ym"].a || []).push(arguments)};
+        window["ym"].l = 1 * new Date();
+        var initYMconf = function() {
+            window.ym(86048370, "init", {
+                webvisor: true,
+                clickmap: true,
+                trackLinks: true,
+                accurateTrackBounce: false,
+                trackHash: true,
+                ecommerce: "dataLayer"
+            })
+        };
+
+        var initYMconfE = function() {
+            window.ym(86048370, "init", {
+                webvisor: false,
+                clickmap: true,
+                trackLinks: true,
+                accurateTrackBounce: false,
+                trackHash: true,
+                ecommerce: "dataLayer"
+            })
+        };
+ 
+        function loadMCScript(src, okcallback, errcallback) {
+            var s, t;
+            s = document.createElement('script');
+            s.async = !0;
+            s.src = src;
+            s.onload = function() {
+                if (typeof okcallback === 'function') {
+                    okcallback()
+                }
+            };
+            s.onerror = function() {
+                if (typeof errcallback === 'function') {
+                    errcallback()
+                }
+            };
+            t = document.getElementsByTagName('script')[0];
+            t.parentNode.insertBefore(s, t)
+        }
+ 
+        setTimeout(function() {
+            var cff2 = function() {
+                loadMCScript("https://cfwosp.quic.pro/metrika/ymtag.js", initYMconfE)
+            }
+            loadMCScript("https://mc.yandex.ru/metrika/tag.js", initYMconf, cff2)
+        }, 300);
+    </script>
+</body>
+
+</html>
