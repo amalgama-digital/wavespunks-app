@@ -19,13 +19,15 @@
         }
 
         .wavespunks-logo {
-            height: 100px;
-            width: 100px;
+            height: 170px;
+            width: 170px;
+            top: -18% !important;
         }
 
         .wavespunks-text {
             font-size: 25px !important;
             line-height: 67px !important;
+            top: -20% !important;
         }
     }
 
@@ -36,13 +38,15 @@
         }
 
         .wavespunks-logo {
-            height: 100px;
-            width: 100px;
+            height: 170px;
+            width: 170px;
+            top: -18% !important;
         }
 
         .wavespunks-text {
             font-size: 25px !important;
             line-height: 67px !important;
+            top: -20% !important;
         }
     }
 
@@ -54,13 +58,15 @@
         }
 
         .wavespunks-logo {
-            height: 75px;
-            width: 75px;
+            height: 120px;
+            width: 120px;
+            top: -15% !important;
         }
 
         .wavespunks-text {
             font-size: 15px !important;
             line-height: 37px !important;
+            top: -25% !important;
         }
     }
 
