@@ -8,16 +8,19 @@
             </div>
             <div class="wavespunks-fire">
                 <img src="/img/fire.svg">
-                <div>
-                    <a id="discord" target="_blank" href="https://discord.gg/QqBptKxSzS" class="p-1">
+                <div class="wavespunks-social">
+                    <a id="discord" target="_blank" href="https://discord.gg/QqBptKxSzS">
                         <img src="/img/discord.svg">
                     </a>
-                    <a id="telegram" target="_blank" href="https://t.me/wavespunks" class="p-1">
+                    <a id="telegram" target="_blank" href="https://t.me/wavespunks">
                         <img src="/img/telegram.svg">
                     </a>
-                    <!-- <a id="instagram" target="_blank" href="#" class="p-1">
+                    <a id="instagram" target="_blank" href="https://instagram.com/waves_punks">
                         <img src="/img/instagram.svg">
-                    </a> -->
+                    </a>
+                    <a id="twitter" target="_blank" href="https://twitter.com/WavesPunks">
+                        <img src="/img/twitter.svg">
+                    </a>
                 </div>
             </div>
         </div>
@@ -60,6 +63,12 @@
             font-size: 25px !important;
             line-height: 67px !important;
             top: -20% !important;
+        }
+
+        .wavespunks-fire {
+            top: 5% !important;
+            left: 0 !important;
+            right: 0 !important;
         }
     }
 
@@ -151,5 +160,15 @@
     .wavespunks-fire a img {
         width: 40px;
         height: 40px;
+    }
+
+    .wavespunks-social {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
     }
 </style>
