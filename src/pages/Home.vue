@@ -6,7 +6,20 @@
                 <img class="wavespunks-logo" src="/img/logo.svg">
                 <p class="wavespunks-text">COMING SOON</p>
             </div>
-            <img class="wavespunks-fire" src="/img/fire.svg">
+            <div class="wavespunks-fire">
+                <img src="/img/fire.svg">
+                <div>
+                    <a id="discord" target="_blank" href="https://discord.gg/QqBptKxSzS" class="p-1">
+                        <img src="/img/discord.svg">
+                    </a>
+                    <a id="telegram" target="_blank" href="https://t.me/wavespunks" class="p-1">
+                        <img src="/img/telegram.svg">
+                    </a>
+                    <!-- <a id="instagram" target="_blank" href="#" class="p-1">
+                        <img src="/img/instagram.svg">
+                    </a> -->
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -125,11 +138,18 @@
         top: -15%;
     }
 
-    .wavespunks-fire{
+    .wavespunks-fire {
         height: 15%;
         position: absolute;
         top: 50%;
         right: 5%;
         z-index: 2;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .wavespunks-fire a img {
+        width: 40px;
+        height: 40px;
     }
 </style>
