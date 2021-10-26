@@ -5,6 +5,24 @@
             <div class="wavespunks-main">
                 <img class="wavespunks-logo" src="/img/logo.svg">
                 <p class="wavespunks-text">COMING SOON</p>
+                <div class="countdown">
+                    <div class="countdown-number">
+                        <span class="countdown-time">{{ days }}</span>
+                        <span class="countdown-text">Days</span>
+                    </div>
+                    <div class="countdown-number">
+                        <span class="countdown-time">{{ hours }}</span>
+                        <span class="countdown-text">Hours</span>
+                    </div>
+                    <div class="countdown-number">
+                        <span class="countdown-time">{{ minutes }}</span>
+                        <span class="countdown-text">Minutes</span>
+                    </div>
+                    <div class="countdown-number">
+                        <span class="countdown-time">{{ seconds }}</span>
+                        <span class="countdown-text">Seconds</span>
+                    </div>
+                </div>
             </div>
             <div class="wavespunks-fire">
                 <img src="/img/fire.svg">
@@ -26,6 +44,61 @@
         </div>
     </div>
 </template>
+
+<script>
+    export default {
+        name: "Home",
+        data(){
+            return {
+                days: "",
+                hours: "",
+                minutes: "",
+                seconds: "",
+                deadline: "November 15 2021 00:00:00 GMT+0300"
+            }
+        },
+        mounted() {
+            this.initializeClock(this.deadline);
+        },
+        methods: {
+            initializeClock(endtime) {
+                let vm = this;
+
+                function getTimeRemaining(endtime) {
+                    var t = Date.parse(endtime) - Date.parse(new Date());
+                    var seconds = Math.floor((t / 1000) % 60);
+                    var minutes = Math.floor((t / 1000 / 60) % 60);
+                    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+                    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+                    return {
+                        'total': t,
+                        'days': days,
+                        'hours': hours,
+                        'minutes': minutes,
+                        'seconds': seconds
+                    };
+                }
+
+                function updateClock() {
+                    var t = getTimeRemaining(endtime);
+
+                    vm.days = t.days;
+                    vm.hours = ('0' + t.hours).slice(-2);
+                    vm.minutes = ('0' + t.minutes).slice(-2);
+                    vm.seconds = ('0' + t.seconds).slice(-2);
+
+                    if (t.total <= 0) {
+                        clearInterval(timeinterval);
+                    }
+                }
+                
+                updateClock();
+                var timeinterval = setInterval(updateClock, 1000);
+            }
+        }
+    }
+</script>
+
 
 <style scoped>
     @media only screen and (max-height: 767px) {
@@ -70,6 +143,14 @@
             left: 0 !important;
             right: 0 !important;
         }
+
+        .countdown-number {
+            margin: 0px 15px !important;
+        }
+
+        .countdown-time {
+            font-size: 40px !important;
+        }
     }
 
     @media only screen and (max-width: 424px) {
@@ -89,6 +170,10 @@
             font-size: 15px !important;
             line-height: 37px !important;
             top: -25% !important;
+        }
+
+        .countdown-time {
+            font-size: 20px !important;
         }
     }
 
@@ -170,5 +255,25 @@
         justify-content: center;
         align-items: center;
         margin: auto;
+    }
+
+    .countdown {
+        display: flex;
+    }
+
+    .countdown-number {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 25px;
+    }
+
+    .countdown-time {
+        font-size: 50px;
+    }
+
+    .countdown-text {
+        font-size: 12px;
     }
 </style>
