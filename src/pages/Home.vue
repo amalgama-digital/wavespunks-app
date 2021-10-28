@@ -33,7 +33,7 @@
                     <a id="telegram" target="_blank" href="https://t.me/wavespunks">
                         <img src="/img/telegram.svg">
                     </a>
-                    <a id="instagram" target="_blank" href="https://instagram.com/waves_punks">
+                    <a id="instagram" target="_blank" href="https://instagram.com/waves.punks">
                         <img src="/img/instagram.svg">
                     </a>
                     <a id="twitter" target="_blank" href="https://twitter.com/WavesPunks">
