@@ -1,45 +1,113 @@
 <template>
     <div class="wavespunks-home">
-        <div class="wavespunks-content">
-            <div class="wavespunks-back-logo"></div>
-            <div class="wavespunks-main">
-                <img class="wavespunks-logo" src="/img/logo.svg">
-                <p class="wavespunks-text">COMING SOON</p>
-                <div class="countdown">
-                    <div class="countdown-number">
-                        <span class="countdown-time">{{ days }}</span>
-                        <span class="countdown-text">Days</span>
+        <div class="wavespunks-header">
+            <div class="wavespunks-logo">
+                <img src="/img/logo.svg">
+                CRYPTO CHRONICLES
+            </div>
+            <div class="wavespunks-links">
+                <a href="#">MY PUNKS</a>
+                <a href="#">
+                    <img src="/img/discord.svg">
+                </a>
+                <a href="#">
+                    <img src="/img/telegram.svg">
+                </a>
+                <a href="#">
+                    <img src="/img/instagram.svg">
+                </a>
+            </div>
+        </div>
+        <div class="wavespunks-first border-radius-18">
+            <div class="wavespunks-first-back">
+                <div class="wavespunks-first-text">
+                    <h2 style="color: #FFFFFF;">FIRST-EVER&nbsp;NFT-PUNKS<br>ON&nbsp;WAVES&nbsp;BLOCKCHAIN</h2>
+                    <div class="wavespunks-get-one">
+                        GET ONE NOW:
+                        <button>Mint a Waves Punk</button>
                     </div>
-                    <div class="countdown-number">
-                        <span class="countdown-time">{{ hours }}</span>
-                        <span class="countdown-text">Hours</span>
-                    </div>
-                    <div class="countdown-number">
-                        <span class="countdown-time">{{ minutes }}</span>
-                        <span class="countdown-text">Minutes</span>
-                    </div>
-                    <div class="countdown-number">
-                        <span class="countdown-time">{{ seconds }}</span>
-                        <span class="countdown-text">Seconds</span>
+                </div>
+                <img src="/img/first-punk.svg">
+            </div>
+        </div>
+        <div class="wavespunks-what">
+            <div class="wavespunks-what-is border-radius-18">
+                <h2>WHAT&nbsp;IS<br>WAVES&nbsp;PUNKS?</h2>
+                <div>
+                    <p>Blockchain platform WAVES has always been at the forefront of blockchain technology development.</p>
+                    <p>WAVES PUNKS is the first collection of digital punks on Waves blockchain, dedicated both to the major milestones in cryptocurrency history and to the role of Waves blockchain in it.</p>
+                </div>
+            </div>
+            <div class="wavespunks-what-four">
+                <div class="border-radius-18" style="background: #0055FF;">
+                    <img src="/img/only-nft.svg">
+                </div>
+                <div class="border-radius-18" style="background: #0A0A0B;">
+                    <img src="/img/first-of-it-s-kind.svg">
+                </div>
+                <div class="border-radius-18" style="background: #FFFFFF;">
+                    <img src="/img/waves-community.svg">
+                </div>
+                <div class="border-radius-18" style="background: #000000;">
+                    <div style="background: radial-gradient(99.15% 148.72% at 93.42% 110.15%, #0055FF 0.22%, rgba(0, 85, 255, 0) 100%); width: 100%; height: 100%; border-radius: 18px;">
+                        <img src="/img/crypto-enthusiasts.svg">
                     </div>
                 </div>
             </div>
-            <div class="wavespunks-fire">
-                <img src="/img/fire.svg">
-                <div class="wavespunks-social">
-                    <a id="discord" target="_blank" href="https://discord.gg/QqBptKxSzS">
-                        <img src="/img/discord.svg">
-                    </a>
-                    <a id="telegram" target="_blank" href="https://t.me/wavespunks">
-                        <img src="/img/telegram.svg">
-                    </a>
-                    <a id="instagram" target="_blank" href="https://instagram.com/waves.punks">
-                        <img src="/img/instagram.svg">
-                    </a>
-                    <a id="twitter" target="_blank" href="https://twitter.com/WavesPunks">
-                        <img src="/img/twitter.svg">
-                    </a>
+        </div>
+        <!-- <div>
+            <div>
+                <h2>HOW TO MINT</h2>
+                <div>IT’S THAT EASY:</div>
+                <button>Mint a Waves Punk</button>
+            </div>
+            <div>
+            </div>
+        </div> -->
+        <div class="wavespunks-five-ages">
+            <h2>FIVE&nbsp;AGES&nbsp;OF<br>CRYPTO&nbsp;HISTORY</h2>
+            <div class="wavespunks-five-ages-four">
+                <div class="border-radius-18" style="background: #0055FF;">
+                    <img src="/img/antiquity-punk-card.svg">
+                    <div class="wavespunks-five-ages-text" style="color: white;">
+                        <h3>CRYPTO<br>ANTIQUITY</h3>
+                        <p>The concept of bit gold<br>Nick Sabo & Satoshi Nakamoto</p>
+                        <p>Only <b>192 rare</b> waves punks<br>Only <b>10 super-rare</b> waves punks</p>
+                    </div>
                 </div>
+                <div class="border-radius-18" style="background: #F1F1F1;">
+                    <img src="/img/middle-ages-card.svg">
+                    <div class="wavespunks-five-ages-text">
+                        <h3>BLOCKCHAIN<br>MIDDLE&nbsp;AGES</h3>
+                        <p>ICO «gold rush»<br>Sahsa Ivanov & Waves foundation</p>
+                        <p>Only <b>192 rare</b> waves punks<br>Only <b>10 super-rare</b> waves punks</p>
+                    </div>
+                </div>
+                <div class="border-radius-18" style="background: #000000;">
+                    <img src="/img/crypto-mess-punk-card.svg">
+                    <div class="wavespunks-five-ages-text" style="color: white;">
+                        <h3>THE<br>GREAT</h3>
+                        <p>SEC strikes back<br>Crypto Kitties & Bitcoin Futures</p>
+                        <p style="color: #FF00CF;">Only <b>192 rare</b> waves punks<br>Only <b>10 super-rare</b> waves punks</p>
+                    </div>
+                </div>
+                <div class="border-radius-18" style="background: #D64422;">
+                    <img src="/img/renaissance-punk-card.svg">
+                    <div class="wavespunks-five-ages-text" style="color: white;">
+                        <h3>CRYPTO<br>RENAISSANCE</h3>
+                        <p>Rise of NFT & DeFi-revolution<br>Beeple & Waves Ducks</p>
+                        <p>Only <b>192 rare</b> waves punks<br>Only <b>10 super-rare</b> waves punks</p>
+                    </div>
+                </div>
+            </div>
+            <div class="wavespunks-tokenized border-radius-18">
+                <h3>TOKENIZED</h3>
+                <img src="/img/future-letters.svg">
+                <div>
+                    <p>Blockchain-based states<br>Last Bitcoin on Earth</p>
+                    <p>Only <b>191 rare</b> waves punks<br>Only <b>1 ULTRA-rare</b> waves punks</p>
+                </div>
+                <img src="/img/future-head.svg">
             </div>
         </div>
     </div>
@@ -47,233 +115,236 @@
 
 <script>
     export default {
-        name: "Home",
-        data(){
-            return {
-                days: "",
-                hours: "",
-                minutes: "",
-                seconds: "",
-                deadline: "November 15 2021 00:00:00 GMT+0300"
-            }
-        },
-        mounted() {
-            this.initializeClock(this.deadline);
-        },
-        methods: {
-            initializeClock(endtime) {
-                let vm = this;
-
-                function getTimeRemaining(endtime) {
-                    var t = Date.parse(endtime) - Date.parse(new Date());
-                    var seconds = Math.floor((t / 1000) % 60);
-                    var minutes = Math.floor((t / 1000 / 60) % 60);
-                    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-                    var days = Math.floor(t / (1000 * 60 * 60 * 24));
-                    return {
-                        'total': t,
-                        'days': days,
-                        'hours': hours,
-                        'minutes': minutes,
-                        'seconds': seconds
-                    };
-                }
-
-                function updateClock() {
-                    var t = getTimeRemaining(endtime);
-
-                    vm.days = t.days;
-                    vm.hours = ('0' + t.hours).slice(-2);
-                    vm.minutes = ('0' + t.minutes).slice(-2);
-                    vm.seconds = ('0' + t.seconds).slice(-2);
-
-                    if (t.total <= 0) {
-                        clearInterval(timeinterval);
-                    }
-                }
-                
-                updateClock();
-                var timeinterval = setInterval(updateClock, 1000);
-            }
-        }
+        name: "Home"
     }
 </script>
 
 
 <style scoped>
-    @media only screen and (max-height: 767px) {
-        .wavespunks-main {
-            background-size: 500px 500px;
-            height: 500px !important;
-        }
-
-        .wavespunks-logo {
-            height: 170px;
-            width: 170px;
-            top: -18% !important;
-        }
-
-        .wavespunks-text {
-            font-size: 25px !important;
-            line-height: 67px !important;
-            top: -20% !important;
-        }
+    h2 {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 52px;
+        line-height: 63px;
     }
 
-    @media only screen and (max-width: 767px) {
-        .wavespunks-main {
-            background-size: 500px 500px;
-            height: 500px !important;
-        }
-
-        .wavespunks-logo {
-            height: 170px;
-            width: 170px;
-            top: -18% !important;
-        }
-
-        .wavespunks-text {
-            font-size: 25px !important;
-            line-height: 67px !important;
-            top: -20% !important;
-        }
-
-        .wavespunks-fire {
-            top: 5% !important;
-            left: 0 !important;
-            right: 0 !important;
-        }
-
-        .countdown-number {
-            margin: 0px 15px !important;
-        }
-
-        .countdown-time {
-            font-size: 40px !important;
-        }
+    h3 {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 48px;
+        margin: 0;
     }
 
-    @media only screen and (max-width: 424px) {
-        .wavespunks-main {
-            background-size: 300px 300px;
-            height: 300px !important;
-            bottom: 50px !important;
-        }
-
-        .wavespunks-logo {
-            height: 120px;
-            width: 120px;
-            top: -15% !important;
-        }
-
-        .wavespunks-text {
-            font-size: 15px !important;
-            line-height: 37px !important;
-            top: -25% !important;
-        }
-
-        .countdown-time {
-            font-size: 20px !important;
-        }
+    .border-radius-18 {
+        border-radius: 18px;
     }
 
     .wavespunks-home {
-        background: #000000;
-        color: white;
-        height: 100vh;
-        font-family: Inter;
-        font-style: normal;
+        margin: 40px 109px;
     }
 
-    .wavespunks-content {
-        background: radial-gradient(circle, rgba(0,85,255,1) 0%, rgba(0,0,0,1) 75%); 
-        /* background: radial-gradient(33.35% 47.68% at 46.8% 50.45%, #0055FF 0.22%, rgba(0, 85, 255, 0) 100%); */
-        height: 100%;
-    }
-
-    .wavespunks-back-logo {
-        background-image: url("/img/back-logo.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        height: 100%;
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        width: 100%;
-    }
-
-    .wavespunks-main {
+    .wavespunks-header {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        position: fixed;
-        background-image: url("/img/shadow.svg");
-        background-repeat: no-repeat;
-        background-position: bottom;
-        z-index: 2;
-        width: 100%;
-        height: 763px;
-        bottom: 0;
+        justify-content: space-between;
+        align-items: flex-end;
     }
 
     .wavespunks-logo {
-        position: relative;
-        top: -20%;
-    }
-
-    .wavespunks-text {
+        font-family: Inter;
+        font-style: normal;
         font-weight: 500;
-        font-size: 55px;
-        line-height: 67px;
-        text-align: center;
-        position: relative;
-        top: -15%;
+        font-size: 14px;
+        line-height: 17px;
     }
 
-    .wavespunks-fire {
-        height: 15%;
-        position: absolute;
-        top: 50%;
-        right: 5%;
-        z-index: 2;
+    .wavespunks-links {
+        display: flex;
+        align-items: center;
+    }
+
+    .wavespunks-links a, .wavespunks-links a:hover, .wavespunks-links a:active {
+        text-decoration: none;
+        color: black;
+    }
+
+    .wavespunks-links > a {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        margin: 0px 15px;
+    }
+
+    .wavespunks-first {
+        margin: 40px 0px;
+        background: radial-gradient(49.91% 258.29% at 60.66% 81.09%, #0055FF 0%, #000000 100%);
+        height: 550px;
+    }
+
+    .wavespunks-first-back {
+        background-image: url("/img/first-back.svg");
+        background-repeat: no-repeat;
+        background-position: right;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .wavespunks-first-back > img {
+        height: 503px;
+        margin-top: 47px;
+        margin-right: 160px;
+    }
+
+    .wavespunks-first-text {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        padding: 0 59px;
     }
 
-    .wavespunks-fire a img {
-        width: 40px;
-        height: 40px;
+    .wavespunks-get-one {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 25px;
+        line-height: 30px;
+        color: #FFFFFF;
+        margin-top: 75px;
     }
 
-    .wavespunks-social {
+    .wavespunks-what {
         display: flex;
-        flex-direction: row;
+        justify-content: space-between;
+        height: 500px;
+        margin: 160px 0;
+    }
+
+    .wavespunks-what-is {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: #FFFFFF;
+        padding: 0 59px;
+        width: 46%;
+    }
+
+    .wavespunks-what-is > div:nth-child(2) {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 19px;
+        margin-top: 75px;
+    }
+
+    .wavespunks-what-four {
+        display: flex;
         flex-wrap: wrap;
-        width: 50%;
+        justify-content: space-between;
+        align-content: space-between;
+        width: 46%;
+    }
+
+    .wavespunks-what-four div {
+        display: flex;
         justify-content: center;
         align-items: center;
-        margin: auto;
+        width: 49%;
+        height: 49%;
     }
 
-    .countdown {
+    .wavespunks-five-ages-four {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: space-between;
+        height: 675px;
     }
 
-    .countdown-number {
+    .wavespunks-five-ages-four > div {
+        position: relative;
+        height: 321px;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: flex-start;
+        width: 42%;
+        padding: 0 59px;
+    }
+
+    .wavespunks-five-ages-four > div > img {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+
+    .wavespunks-five-ages-text > p:nth-child(2) {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .wavespunks-five-ages-text > p:nth-child(3) {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .wavespunks-five-ages-text > p:nth-child(3) > b {
+        font-weight: 500;
+    }
+
+    .wavespunks-five-ages-four > div:nth-child(1) > .wavespunks-five-ages-text > p:nth-child(3) > b {
+        color: #FFD645;
+    }
+
+    .wavespunks-five-ages-four > div:nth-child(2) > .wavespunks-five-ages-text > p:nth-child(3) > b {
+        color: #0055FF;
+    }
+
+    .wavespunks-five-ages-four > div:nth-child(3) > .wavespunks-five-ages-text > p:nth-child(3) > b {
+        color: white;
+    }
+
+    .wavespunks-five-ages-four > div:nth-child(4) > .wavespunks-five-ages-text > p:nth-child(3) > b {
+        color: black;
+    }
+
+    .wavespunks-tokenized {
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        margin: 0px 25px;
+        height: 160px;
+        margin-top: 120px;
     }
 
-    .countdown-time {
-        font-size: 50px;
+    .wavespunks-tokenized > div > p:nth-child(1) {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 22px;
     }
 
-    .countdown-text {
-        font-size: 12px;
+    .wavespunks-tokenized > div > p:nth-child(2) {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .wavespunks-tokenized > div > p:nth-child(2) > b {
+        font-weight: 500;
+        color: #FF00CF;
     }
 </style>
