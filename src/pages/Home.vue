@@ -288,7 +288,7 @@
 
         .wavespunks-upcoming-four {
             overflow-x: scroll;
-            overflow-y: clip;
+            overflow-y: hidden;
             -ms-overflow-style: none; /* for Internet Explorer, Edge */
             scrollbar-width: none; 
         }
@@ -909,6 +909,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        padding: 5px 0;
     }
 
     .wavespunks-upcoming-four > div {
