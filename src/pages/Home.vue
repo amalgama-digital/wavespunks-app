@@ -4,28 +4,32 @@
             <div class="wavespunks-header">
                 <div class="wavespunks-logo">
                     <img src="/img/logo.svg">
-                    CRYPTO CHRONICLES
+                    <p>CRYPTO CHRONICLES</p>
                 </div>
                 <div class="wavespunks-links">
-                    <a href="#">MY PUNKS</a>
-                    <a href="#">
+                    <!-- <a href="#">MY PUNKS</a> -->
+                    <a id="discord" target="_blank" href="https://discord.gg/QqBptKxSzS">
                         <img src="/img/discord.svg">
                     </a>
-                    <a href="#">
+                    <a id="telegram" target="_blank" href="https://t.me/wavespunks">
                         <img src="/img/telegram.svg">
                     </a>
-                    <a href="#">
+                    <a id="instagram" target="_blank" href="https://instagram.com/waves.punks">
                         <img src="/img/instagram.svg">
                     </a>
                 </div>
             </div>
             <div class="wavespunks-first border-radius-18">
-                <div class="wavespunks-first-back">
+                <div class="wavespunks-first-back border-radius-18">
                     <div class="wavespunks-first-text">
-                        <h2 style="color: #FFFFFF;">FIRST-EVER&nbsp;NFT-PUNKS<br>ON&nbsp;WAVES&nbsp;BLOCKCHAIN</h2>
-                        <div class="wavespunks-get-one">
+                        <h2 style="color: #FFFFFF;">FIRST-EVER NFT-PUNKS<br>ON WAVES BLOCKCHAIN</h2>
+                        <!-- <div class="wavespunks-get-one">
                             GET ONE NOW:
                             <button>Mint a Waves Punk</button>
+                        </div> -->
+                        <div class="wavespunks-get-one-in">
+                            GET ONE IN:
+                            {{ days }}:{{ hours }}:{{ minutes }}:{{ seconds }}
                         </div>
                     </div>
                     <img src="/img/first-punk.svg">
@@ -163,13 +167,13 @@
                     <p>DON’T&nbsp;MISS<br>THE&nbsp;TOKENIZED&nbsp;FUTURE</p>
                     <!-- <button>Mint a Waves Punk</button> -->
                     <div class="wavespunks-links">
-                        <a href="#">
+                        <a id="discord" target="_blank" href="https://discord.gg/QqBptKxSzS">
                             <img src="/img/discord-footer.svg">
                         </a>
-                        <a href="#">
+                        <a id="telegram" target="_blank" href="https://t.me/wavespunks">
                             <img src="/img/telegram-footer.svg">
                         </a>
-                        <a href="#">
+                        <a id="instagram" target="_blank" href="https://instagram.com/waves.punks">
                             <img src="/img/instagram-footer.svg">
                         </a>
                     </div>
@@ -185,23 +189,457 @@
 
 <script>
     export default {
-        name: "Home"
+        name: "Home",
+        data(){
+            return {
+                days: "",
+                hours: "",
+                minutes: "",
+                seconds: "",
+                deadline: "November 17 2021 00:00:00 GMT+0000"
+            }
+        },
+        mounted() {
+            this.initializeClock(this.deadline);
+        },
+        methods: {
+            initializeClock(endtime) {
+                let vm = this;
+                function getTimeRemaining(endtime) {
+                    var t = Date.parse(endtime) - Date.parse(new Date());
+                    var seconds = Math.floor((t / 1000) % 60);
+                    var minutes = Math.floor((t / 1000 / 60) % 60);
+                    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+                    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+                    return {
+                        'total': t,
+                        'days': days,
+                        'hours': hours,
+                        'minutes': minutes,
+                        'seconds': seconds
+                    };
+                }
+                function updateClock() {
+                    var t = getTimeRemaining(endtime);
+                    vm.days = t.days;
+                    vm.hours = ('0' + t.hours).slice(-2);
+                    vm.minutes = ('0' + t.minutes).slice(-2);
+                    vm.seconds = ('0' + t.seconds).slice(-2);
+                    if (t.total <= 0) {
+                        clearInterval(timeinterval);
+                    }
+                }
+                
+                updateClock();
+                var timeinterval = setInterval(updateClock, 1000);
+            }
+        }
     }
 </script>
 
 
 <style scoped>
+    @media only screen and (max-width: 1440px) {
+        h2 {
+            font-size: 42px !important;
+        }
+
+        h3 {
+            font-size: 30px !important;
+        }
+
+        .wavespunks-get-one {
+            font-size: 15px !important;
+        }
+
+        .wavespunks-get-one-in {
+            font-size: 35px !important;
+        }
+
+        .wavespunks-what-four > div:nth-child(1) > img {
+            height: 80%;
+        }
+
+        .wavespunks-what-four > div:nth-child(2) > img {
+            width: 85%;
+        }
+
+        .wavespunks-what-four > div:nth-child(3) > img {
+            width: 85%;
+        }
+
+        .wavespunks-what-four > div:nth-child(4) img {
+            width: 75%;
+        }
+
+        .wavespunks-five-ages-text > p:nth-child(2),
+        .wavespunks-tokenized > div > p:nth-child(1) {
+            font-size: 16px !important;
+        }
+
+        .wavespunks-five-ages-text > p:nth-child(3),
+        .wavespunks-tokenized > div > p:nth-child(2) {
+            font-size: 18px !important;
+        }
+
+        .wavespunks-tokenized > img {
+            width: 200px;
+        }
+
+        .wavespunks-upcoming-four {
+            overflow-x: scroll;
+            overflow-y: clip;
+            -ms-overflow-style: none; /* for Internet Explorer, Edge */
+            scrollbar-width: none; 
+        }
+
+        .wavespunks-upcoming-four::-webkit-scrollbar {
+            display: none; /* for Chrome, Safari, and Opera */
+        }
+
+        .wavespunks-coming-soon {
+            min-width: 330px;
+            margin-left: 20px;
+        }
+    }
+
+    @media only screen and (max-width: 1024px) {
+        h2 {
+            font-size: 32px !important;
+            line-height: 43px !important;
+        }
+
+        h3 {
+            font-size: 20px !important;
+            line-height: 28px !important;
+        }
+
+        .wavespunks-header {
+            margin-left: 0px !important;
+        }
+
+        .wavespunks-get-one {
+            font-size: 13px !important;
+        }
+
+        .wavespunks-get-one-in {
+            font-size: 25px !important;
+        }
+
+        .wavespunks-what {
+            flex-wrap: wrap;
+            height: max-content !important;
+        }
+
+        .wavespunks-what > div {
+            width: 100% !important;
+        }
+
+        .wavespunks-what > div:nth-child(1) {
+            padding: 60px !important;
+        }
+
+        .wavespunks-what > div:nth-child(2) {
+            margin-top: 20px;
+            margin-left: 0px;
+        }
+
+        .wavespunks-what-four > div:nth-child(2) > img {
+            height: 85%;
+        }
+
+        .wavespunks-what-four > div:nth-child(3) > img {
+            height: 85%;
+        }
+
+        .wavespunks-what-four > div:nth-child(4) img {
+            height: 75%;
+        }
+
+        .wavespunks-five-ages-four {
+            height: max-content !important;
+        }
+
+        .wavespunks-five-ages-four > div {
+            width: 100% !important;
+        }
+
+        .wavespunks-middle-ages, .wavespunks-the-great, .wavespunks-crypto-renaissance {
+            margin-top: 30px;
+        }
+
+        .wavespunks-current-collection > div:nth-child(2) > p:nth-child(2) {
+            font-size: 32px !important;
+        }
+
+        .wavespunks-footer-wrapper > div:nth-child(3) > img:nth-child(2) {
+            display: none;
+        }
+
+        .wavespunks-footer-logo {
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start !important;
+        }
+
+        .wavespunks-footer-logo > p {
+            font-size: 12px !important;
+            margin-left: 30px;
+        }
+    }
+
+    @media only screen and (min-width: 769px) {
+        .wavespunks-logo > p {
+            margin-top: 80px;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        .wavespunks-header {
+            align-items: baseline !important;
+        }
+
+        .wavespunks-logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wavespunks-first {
+            height: 800px !important;
+        }
+
+        .wavespunks-first-back {
+            flex-direction: column;
+            align-items: center;
+            background-size: cover;
+            background-position: left !important;
+        }
+
+        .wavespunks-first-back > img {
+            margin-right: 0px !important;
+        }
+
+        .wavespunks-first-text {
+            padding: 60px 60px 0 60px !important;
+            text-align: center;
+        }
+
+        .wavespunks-tokenized {
+            flex-wrap: wrap;
+            height: 100% !important;
+        }
+
+        .wavespunks-tokenized > img:nth-child(2) {
+            margin-top: -10px;
+        }
+
+        .wavespunks-tokenized > img:nth-child(4) {
+            margin-bottom: -10px;
+        }
+
+        .wavespunks-footer-wrapper {
+            flex-direction: column !important;
+        }
+
+        .wavespunks-footer-wrapper > div:nth-child(2) {
+            margin-bottom: 20px;
+        }
+
+        .wavespunks-footer-logo {
+            margin-left: 40px;
+        }
+    }
+
+    @media only screen and (min-width: 768px) {
+        .wavespunks-logo {
+            display: flex;
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        .wavespunks-logo {
+            margin-left: 60px;
+        }
+
+        .wavespunks-logo > p {
+            margin-left: 20px;
+        }
+
+        .wavespunks-header {
+            flex-direction: column;
+            align-items: center !important;
+        }
+
+        .wavespunks-five-ages-four > div {
+            height: 221px !important;
+        }
+
+        .wavespunks-five-ages-four > div > img {
+            height: 100%;
+        }
+
+        .wavespunks-five-ages-text > p:nth-child(3) {
+            margin-bottom: 0px !important;
+        }
+
+        .wavespunks-tokenized {
+            position: relative;
+        }
+
+        .wavespunks-tokenized > img:nth-child(4) {
+            position: absolute;
+            right: 20px;
+            bottom: -10px;
+        }
+
+        .wavespunks-join-the-global > div {
+            flex-direction: column !important;
+        }
+
+        .wavespunks-join-the-global > div > div:nth-child(2) {
+            margin-left: 0px !important;
+        }
+    }
+
+    @media only screen and (max-width: 660px) {
+        .wavespunks-first-back > img {
+            height: 400px !important;
+        }
+
+        .wavespunks-what-is > div:nth-child(2) {
+            font-size: 14px !important;
+            line-height: 17px !important;
+        }
+
+        .wavespunks-what-four > div:nth-child(2) > img,
+        .wavespunks-what-four > div:nth-child(3) > img {
+            height: 60% !important;
+        }
+
+        .wavespunks-what-four > div:nth-child(4) img {
+            height: 50% !important;
+        }
+
+        .wavespunks-five-ages h2 {
+            margin-left: 0px !important;
+            text-align: center;
+        }
+
+        .wavespunks-five-ages-four > div {
+            padding: 0 35px !important;
+        }
+
+        .wavespunks-five-ages-text > p:nth-child(2),
+        .wavespunks-tokenized > div > p:nth-child(1) {
+            font-size: 12px !important;
+            line-height: 15px !important;
+        }
+
+        .wavespunks-five-ages-text > p:nth-child(3),
+        .wavespunks-tokenized > div > p:nth-child(2) {
+            font-size: 12px !important;
+            line-height: 15px !important;
+        }
+
+        .wavespunks-the-great > img {
+            height: calc(100% + 18px) !important;
+        }
+
+        .wavespunks-tokenized {
+            flex-direction: column;
+            justify-content: center !important;
+            align-items: flex-start !important;
+            height: 200px !important;
+            padding: 0 35px !important;
+        }
+
+        .wavespunks-tokenized > img:nth-child(2) {
+            position: absolute;
+            right: 20px;
+            top: 0px;
+        }
+
+        .wavespunks-join-the-global {
+            margin-left: 0px !important;
+        }
+    }
+
+    @media only screen and (max-width: 580px) {
+        .wavespunks-logo {
+            margin-left: 50px !important;
+        }
+
+        .wavespunks-logo > img {
+            width: 200px !important;
+        }
+
+        .wavespunks-logo > p {
+            margin-left: 5px !important;
+        }
+
+        .wavespunks-first {
+            height: 700px !important;
+        }
+
+        .wavespunks-first-back > img {
+            height: 300px !important;
+            margin-top: 0px !important;
+        }
+
+        .wavespunks-what {
+            margin-top: 70px !important;
+        }
+
+        .wavespunks-what > div:nth-child(1) {
+            padding: 35px !important;
+        }
+
+        .wavespunks-five-ages {
+            margin-top: 80px !important;
+        }
+
+        .wavespunks-five-ages-four > div {
+            height: 190px !important;
+            overflow: hidden;
+        }
+
+        .wavespunks-five-ages-four > div > img {
+            right: -80px !important;
+        }
+
+        .wavespunks-tokenized > img {
+            width: 120px;
+        }
+
+        .wavespunks-upcoming {
+            margin-top: 78px !important;
+        }
+
+        .wavespunks-upcoming h2 {
+            margin-left: 0px !important;
+        }
+
+        .wavespunks-upcoming-four > div{
+            height: 366px !important;
+        }
+
+        .wavespunks-current-collection > img {
+            width: 200px !important;
+        }
+
+        .wavespunks-coming-soon {
+            min-width: 200px !important;
+        }
+    }
+
     h2 {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 500;
         font-size: 52px;
         line-height: 63px;
+        margin: 0;
     }
 
     h3 {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 500;
         font-size: 40px;
         line-height: 48px;
@@ -213,18 +651,19 @@
     }
 
     .wavespunks-home {
-        margin: 40px 109px;
+        margin: 40px;
+        font-family: Inter;
+        font-style: normal;
     }
 
     .wavespunks-header {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
+        margin-left: 70px;
     }
 
     .wavespunks-logo {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 500;
         font-size: 14px;
         line-height: 17px;
@@ -241,8 +680,6 @@
     }
 
     .wavespunks-links > a {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 500;
         font-size: 14px;
         line-height: 17px;
@@ -250,7 +687,7 @@
     }
 
     .wavespunks-first {
-        margin: 40px 0px;
+        margin-top: 70px;
         background: radial-gradient(49.91% 258.29% at 60.66% 81.09%, #0055FF 0%, #000000 100%);
         height: 550px;
         box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2)
@@ -275,14 +712,20 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 0 59px;
+        padding: 0 60px;
     }
 
     .wavespunks-get-one {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 500;
         font-size: 25px;
+        line-height: 30px;
+        color: #FFFFFF;
+        margin-top: 75px;
+    }
+
+    .wavespunks-get-one-in {
+        font-weight: 500;
+        font-size: 45px;
         line-height: 30px;
         color: #FFFFFF;
         margin-top: 75px;
@@ -292,7 +735,7 @@
         display: flex;
         justify-content: space-between;
         height: 500px;
-        margin: 160px 0;
+        margin-top: 170px;
     }
 
     .wavespunks-what-is {
@@ -300,13 +743,11 @@
         flex-direction: column;
         justify-content: center;
         background: #FFFFFF;
-        padding: 0 59px;
-        width: 46%;
+        padding: 0 60px;
+        width: calc(50% - 10px);
     }
 
     .wavespunks-what-is > div:nth-child(2) {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 300;
         font-size: 16px;
         line-height: 19px;
@@ -318,11 +759,17 @@
         flex-wrap: wrap;
         justify-content: space-between;
         align-content: space-between;
-        width: 46%;
+        width: calc(50% - 10px);
+        margin-left: 20px;
+    }
+
+    .wavespunks-five-ages {
+        margin-top: 180px;
     }
 
     .wavespunks-five-ages h2 {
-        margin-left: 60px
+        margin-left: 60px;
+        margin-bottom: 50px;
     }
 
     .wavespunks-what-four div {
@@ -348,14 +795,19 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        width: 42%;
-        padding: 0 59px;
+        width: calc(50% - 130px);
+        padding: 0 60px;
     }
 
     .wavespunks-five-ages-four > div > img {
         position: absolute;
         right: 0;
         bottom: 0;
+        z-index: 0;
+    }
+
+    .wavespunks-five-ages-four > div > div {
+        z-index: 1;
     }
 
     .wavespunks-crypto-antiquity {
@@ -379,16 +831,12 @@
     }
 
     .wavespunks-five-ages-text > p:nth-child(2) {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 300;
         font-size: 18px;
         line-height: 22px;
     }
 
     .wavespunks-five-ages-text > p:nth-child(3) {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 500;
         font-size: 20px;
         line-height: 24px;
@@ -420,21 +868,17 @@
         align-items: center;
         height: 160px;
         margin-top: 120px;
-        padding: 0 59px;
+        padding: 0 60px;
         box-shadow: 2px 2px 2px 0px rgb(206, 206, 206), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
     }
 
     .wavespunks-tokenized > div > p:nth-child(1) {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 300;
         font-size: 18px;
         line-height: 22px;
     }
 
     .wavespunks-tokenized > div > p:nth-child(2) {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 500;
         font-size: 20px;
         line-height: 24px;
@@ -450,7 +894,8 @@
     }
 
     .wavespunks-upcoming h2 {
-        margin-left: 60px
+        margin-left: 60px;
+        margin-bottom: 50px;
     }
 
     .wavespunks-upcoming-four {
@@ -475,8 +920,6 @@
     }
 
     .wavespunks-current-collection > div:first-child {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 500;
         font-size: 12px;
         line-height: 15px;
@@ -489,8 +932,6 @@
     }
 
     .wavespunks-current-collection > div:nth-child(2) > p:first-child {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 500;
         font-size: 14px;
         line-height: 17px;
@@ -499,8 +940,6 @@
     }
 
     .wavespunks-current-collection > div:nth-child(2) > p:nth-child(2) {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 500;
         font-size: 52px;
         line-height: 63px;
@@ -515,8 +954,6 @@
     }
 
     .wavespunks-coming-soon > p:first-child {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 300;
         font-size: 200px;
         line-height: 242px;
@@ -526,8 +963,6 @@
     }
 
     .wavespunks-coming-soon > p:nth-child(2) {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 600;
         font-size: 35px;
         line-height: 42px;
@@ -538,11 +973,12 @@
 
     .wavespunks-join-the-global {
         margin-left: 60px;
-        margin-top: 120px;
+        margin-top: 130px;
     }
 
     .wavespunks-join-the-global > h2 {
         color: #0055FF;
+        margin-bottom: 60px;
     }
 
     .wavespunks-join-the-global > div {
@@ -555,14 +991,14 @@
     }
 
     .wavespunks-join-the-global > div > div > p {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 300;
         font-size: 18px;
         line-height: 22px;
     }
 
     .wavespunks-footer {
+        font-family: Inter;
+        font-style: normal;
         background: black;
         color: white;
         margin-top: 150px;
@@ -584,13 +1020,12 @@
     }
 
     .wavespunks-footer-logo > p {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 500;
         font-size: 10px;
         line-height: 17px;
         margin-bottom: 10px;
     }
+
     .wavespunks-footer-wrapper > div:nth-child(2) {
         display: flex;
         flex-direction: column;
@@ -599,8 +1034,6 @@
     }
 
     .wavespunks-footer-wrapper > div:nth-child(2) > p {
-        font-family: Inter;
-        font-style: normal;
         font-weight: 500;
         font-size: 22px;
         line-height: 27px;
