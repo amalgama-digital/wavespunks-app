@@ -197,7 +197,7 @@
                 hours: "",
                 minutes: "",
                 seconds: "",
-                deadline: "November 17 2021 00:00:00 GMT+0000"
+                deadline: "November 23 2021 00:00:00 GMT+0000"
             }
         },
         mounted() {
