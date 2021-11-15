@@ -92,6 +92,7 @@
                         <img src="/img/crypto-mess-punk-card.svg">
                         <div class="wavespunks-five-ages-text" style="color: white;">
                             <h3>THE<br>GREAT</h3>
+                            <img src="/img/crypto-mess.svg">
                             <p>SEC strikes back<br>Crypto Kitties & Bitcoin Futures</p>
                             <p style="color: #FF00CF;">Only <b>192 rare</b> waves punks<br>Only <b>10 super-rare</b> waves punks</p>
                         </div>
@@ -368,6 +369,12 @@
             margin-top: 30px;
         }
 
+        .wavespunks-the-great > .wavespunks-five-ages-text > img {
+            width: 80px;
+            top: 45px !important;
+            left: 125px !important;
+        }
+
         .wavespunks-current-collection > div:nth-child(2) > p:nth-child(2) {
             font-size: 32px !important;
         }
@@ -478,6 +485,10 @@
             height: 100%;
         }
 
+        .wavespunks-the-great > .wavespunks-five-ages-text > img {
+            top: 5px !important;
+        }
+
         .wavespunks-five-ages-text > p:nth-child(3) {
             margin-bottom: 0px !important;
         }
@@ -527,6 +538,11 @@
 
         .wavespunks-five-ages-four > div {
             padding: 0 35px !important;
+        }
+
+        .wavespunks-the-great > .wavespunks-five-ages-text > img {
+            top: 10px !important;
+            left: 105px !important;
         }
 
         .wavespunks-five-ages-text > p:nth-child(2),
@@ -605,6 +621,11 @@
 
         .wavespunks-five-ages-four > div > img {
             right: -80px !important;
+        }
+
+        .wavespunks-the-great > .wavespunks-five-ages-text > img {
+            top: 1px !important;
+            left: 95px !important;
         }
 
         .wavespunks-tokenized > img {
@@ -829,6 +850,12 @@
     .wavespunks-the-great {
         background: #000000;
         box-shadow: 2px 2px 2px 0px rgba(1, 1, 1, 0.6), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+    }
+
+    .wavespunks-the-great > .wavespunks-five-ages-text > img {
+        position: absolute;
+        top: 10px;
+        left: 180px;
     }
 
     .wavespunks-crypto-renaissance {
