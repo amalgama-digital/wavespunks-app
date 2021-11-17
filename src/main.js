@@ -8,9 +8,15 @@ import Index from './Index';
 
 import { Signer } from '@waves/signer';
 
+import rare from './rare'
+
 Vue.router = router;
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
+
+window.rare = rare;
+
+window.nodeURL = 'https://nodes-testnet.wavesnodes.com';
 
 window.signer = new Signer({
     NODE_URL: 'https://nodes-testnet.wavesnodes.com'

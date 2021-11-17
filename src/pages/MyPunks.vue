@@ -33,9 +33,7 @@
                         <p>id: {{ punk.id }}</p>
                         <p>type: {{ punk.type }}</p>
                     </div>
-                    <div class="punk-text">
-                        Test
-                    </div>
+                    <div class="punk-text">{{ punk.description }}</div>
                 </div>
             </div>
         </div>
@@ -60,24 +58,29 @@
             ConnectWallet
         },
         async mounted() {
-            if (window.signer) {
-                const data = window.localStorage.getItem("loginChoice");
-                if (!data) {
-                    this.connect = true;
-                } else {
-                    this.wallet = JSON.parse(data);
-                    this.getMyPunks(this.wallet.address);       
-                }
+            const data = window.localStorage.getItem("loginChoice");
+            if (!data) {
+                this.connect = true;
+            } else {
+                this.wallet = JSON.parse(data);
+                this.getMyPunks(this.wallet.address);
             }
         },
         methods: {
             async getMyPunks(address) {
-                await axios.get(`https://nodes-testnet.wavesnodes.com/assets/nft/${address}/limit/1000`)
+                await axios.get(`${window.nodeURL}/assets/nft/${address}/limit/1000`)
                     .then(res => {
                         for(let i = 0; i < res.data.length; i++) {
                             console.log()
-                            if (res.data[i].issuer == window.contractAddress)
-                                this.punks.push(JSON.parse(res.data[i].description));
+                            if (res.data[i].issuer == window.contractAddress) {
+                                let data = JSON.parse(res.data[i].description);
+                                if (data.id <= 40) {
+                                    console.log("test")
+                                    data.description = window.rare[data.id];
+                                    console.log(window.rare)
+                                }
+                                this.punks.push(data);
+                            }
                         }
                     })
                     .catch(err => {
