@@ -92,9 +92,9 @@
                         <img src="/img/crypto-mess-punk-card.svg">
                         <div class="wavespunks-five-ages-text" style="color: white;">
                             <h3>THE<br>GREAT</h3>
-                            <img src="/img/crypto-mess.svg">
                             <p>SEC strikes back<br>Crypto Kitties & Bitcoin Futures</p>
                             <p style="color: #FF00CF;">Only <b>192 rare</b> waves punks<br>Only <b>10 super-rare</b> waves punks</p>
+                            <img src="/img/crypto-mess.svg">
                         </div>
                     </div>
                     <div class="wavespunks-crypto-renaissance border-radius-18">
