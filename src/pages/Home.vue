@@ -11,7 +11,7 @@
                     <a id="discord" target="_blank" href="https://discord.gg/QqBptKxSzS">
                         <img src="/img/discord.svg">
                     </a>
-                    <a id="telegram" target="_blank" href="https://t.me/wavespunks">
+                    <a id="telegram" target="_blank" href="https://t.me/wavespunks_en">
                         <img src="/img/telegram.svg">
                     </a>
                     <a id="instagram" target="_blank" href="https://instagram.com/waves.punks">
@@ -171,7 +171,7 @@
                         <a id="discord" target="_blank" href="https://discord.gg/QqBptKxSzS">
                             <img src="/img/discord-footer.svg">
                         </a>
-                        <a id="telegram" target="_blank" href="https://t.me/wavespunks">
+                        <a id="telegram" target="_blank" href="https://t.me/wavespunks_en">
                             <img src="/img/telegram-footer.svg">
                         </a>
                         <a id="instagram" target="_blank" href="https://instagram.com/waves.punks">
