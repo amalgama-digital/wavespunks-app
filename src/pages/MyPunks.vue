@@ -71,20 +71,17 @@
                 await axios.get(`${window.nodeURL}/assets/nft/${address}/limit/1000`)
                     .then(res => {
                         for(let i = 0; i < res.data.length; i++) {
-                            console.log()
                             if (res.data[i].issuer == window.contractAddress) {
                                 let data = JSON.parse(res.data[i].description);
                                 if (data.id <= 40) {
-                                    console.log("test")
                                     data.description = window.rare[data.id];
-                                    console.log(window.rare)
                                 }
                                 this.punks.push(data);
                             }
                         }
                     })
                     .catch(err => {
-                        console.log(err);
+                        console.error(err);
                     });
             }
         }

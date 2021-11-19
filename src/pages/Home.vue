@@ -7,7 +7,7 @@
                     <p>CRYPTO CHRONICLES</p>
                 </div>
                 <div class="wavespunks-links">
-                    <!-- <a href="#">MY PUNKS</a> -->
+                    <a href="/myPunks">MY PUNKS</a>
                     <a id="discord" target="_blank" href="https://discord.gg/QqBptKxSzS">
                         <img src="/img/discord.svg">
                     </a>
@@ -23,17 +23,20 @@
                 <div class="wavespunks-first-back border-radius-18">
                     <div class="wavespunks-first-text">
                         <h2 style="color: #FFFFFF;">FIRST-EVER NFT-PUNKS<br>ON WAVES BLOCKCHAIN</h2>
-                        <!-- <div class="wavespunks-get-one">
-                            GET ONE NOW:
-                            <button>Mint a Waves Punk</button>
-                        </div> -->
-                        <div class="wavespunks-get-one-in">
-                            GET ONE IN:
-                            {{ days }}:{{ hours }}:{{ minutes }}:{{ seconds }}
+                        <div class="wavespunks-get-one">
+                            GET&nbsp;ONE&nbsp;NOW
+                            <button @click="login">Mint&nbsp;a&nbsp;Waves&nbsp;Punk</button>
                         </div>
                     </div>
                     <img src="/img/first-punk.svg">
                 </div>
+            </div>
+            <div class="wavespunks-watch-out">
+                <img src="/img/fire-watch.svg">
+                <h2>WATCH OUT!</h2>
+                <p>THE PRICE WILL INCREASE<br>for every next 100 WAVES PUNKS</p>
+                WavesPunks left: {{ 1000 - punks_supply }}<br>
+                Current price: {{ (parseInt(punks_supply / 100) + 1) }} WAVES
             </div>
             <div class="wavespunks-what">
                 <div class="wavespunks-what-is border-radius-18">
@@ -185,54 +188,85 @@
                 </div>
             </div>
         </div>
+        <connect-wallet v-if="connect" :connect="connect" v-on:close="connect = $event" v-on:success="mint"></connect-wallet>
     </div>
 </template>
 
 <script>
+    import axios from "axios";
+    import ConnectWallet from "../components/ConnectWallet.vue";
+
+    import { ProviderKeeper } from '@waves/provider-keeper';
+    import { ProviderCloud } from '@waves.exchange/provider-cloud';
+
     export default {
         name: "Home",
         data(){
             return {
-                days: "",
-                hours: "",
-                minutes: "",
-                seconds: "",
-                deadline: "November 23 2021 00:00:00 GMT+0000"
+                connect: false,
+                punks_supply: 0,
+                inviteKey: ""
             }
         },
-        mounted() {
-            this.initializeClock(this.deadline);
+        components: {
+            ConnectWallet
+        },
+        async mounted() {
+            let params = this.$route.params["id"];
+            let inviteKey = window.localStorage.getItem("inviteKey");
+            if (params != undefined) {
+                this.inviteKey = params;
+                window.localStorage.setItem("inviteKey", params);
+            } else if (inviteKey != null) {
+                this.inviteKey = inviteKey;
+            }
+
+            await axios.get(`${window.nodeURL}/addresses/data/${window.contractAddress}?key=punks_supply`)
+                .then(res => {
+                    if (res.data[0].key == "punks_supply" && res.data[0].type == "integer")
+                        this.punks_supply = res.data[0].value;
+                })
+                .catch(err => {
+                    console.error(err);
+                });
         },
         methods: {
-            initializeClock(endtime) {
-                let vm = this;
-                function getTimeRemaining(endtime) {
-                    var t = Date.parse(endtime) - Date.parse(new Date());
-                    var seconds = Math.floor((t / 1000) % 60);
-                    var minutes = Math.floor((t / 1000 / 60) % 60);
-                    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-                    var days = Math.floor(t / (1000 * 60 * 60 * 24));
-                    return {
-                        'total': t,
-                        'days': days,
-                        'hours': hours,
-                        'minutes': minutes,
-                        'seconds': seconds
-                    };
+            login() {
+                const data = JSON.parse(window.localStorage.getItem("loginChoice"));
+                if (!data) {
+                    this.connect = true;
+                } else {
+                    this.mint();
                 }
-                function updateClock() {
-                    var t = getTimeRemaining(endtime);
-                    vm.days = t.days;
-                    vm.hours = ('0' + t.hours).slice(-2);
-                    vm.minutes = ('0' + t.minutes).slice(-2);
-                    vm.seconds = ('0' + t.seconds).slice(-2);
-                    if (t.total <= 0) {
-                        clearInterval(timeinterval);
-                    }
+            },
+            async mint() {
+                const data = JSON.parse(window.localStorage.getItem("loginChoice"));
+                if (data.choice == "keeper") {
+                    const authData = { data: 'https://wavespunks.com/' };
+                    await window.signer.setProvider(new ProviderKeeper(authData)).then(res => {
+                        console.log(res);
+                    }).catch(error => {
+                        console.error(error);
+                    });
+                } else if (data.choice == "email") {
+                    window.signer.setProvider(new ProviderCloud());
                 }
-                
-                updateClock();
-                var timeinterval = setInterval(updateClock, 1000);
+
+                await window.signer.invoke({
+                    dApp: window.contractAddress,
+                    fee: 900000,
+                    payment: [{
+                        assetId: 'WAVES',
+                        amount: (parseInt(this.punks_supply / 100) + 1) * 100000000,
+                    }],
+                    call: {
+                        function: 'mint',
+                        args: [{
+                            type: 'string',
+                            value: this.inviteKey,
+                        }],
+                    },
+                }).broadcast();
             }
         }
     }
@@ -247,14 +281,6 @@
 
         h3 {
             font-size: 30px !important;
-        }
-
-        .wavespunks-get-one {
-            font-size: 15px !important;
-        }
-
-        .wavespunks-get-one-in {
-            font-size: 35px !important;
         }
 
         .wavespunks-what-four > div:nth-child(1) > img {
@@ -320,11 +346,12 @@
         }
 
         .wavespunks-get-one {
-            font-size: 13px !important;
+            font-size: 25px !important;
+            width: min-content !important;
         }
 
-        .wavespunks-get-one-in {
-            font-size: 25px !important;
+        .wavespunks-get-one > button {
+            margin-left: 10px;
         }
 
         .wavespunks-what {
@@ -423,6 +450,7 @@
         }
 
         .wavespunks-first-back > img {
+            margin-top: 34px !important;
             margin-right: 0px !important;
         }
 
@@ -477,6 +505,10 @@
             align-items: center !important;
         }
 
+        .wavespunks-first-text {
+            align-items: center;
+        }
+
         .wavespunks-five-ages-four > div {
             height: 221px !important;
         }
@@ -515,6 +547,15 @@
     @media only screen and (max-width: 660px) {
         .wavespunks-first-back > img {
             height: 400px !important;
+        }
+
+        .wavespunks-get-one {
+            flex-wrap: wrap;
+            justify-content: center !important;
+        }
+
+        .wavespunks-get-one > button {
+            margin-top: 10px;
         }
 
         .wavespunks-what-is > div:nth-child(2) {
@@ -659,6 +700,22 @@
         }
     }
 
+    button {
+        background: #0055FF;
+        border: 0;
+        box-shadow: 2px 2px 2px 0px rgba(6, 59, 166, 0.6), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+        color: white;
+        padding: 10px 20px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+
     h2 {
         font-weight: 500;
         font-size: 52px;
@@ -748,21 +805,27 @@
         line-height: 30px;
         color: #FFFFFF;
         margin-top: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 410px;
     }
 
-    .wavespunks-get-one-in {
-        font-weight: 500;
-        font-size: 45px;
-        line-height: 30px;
-        color: #FFFFFF;
-        margin-top: 75px;
+    .wavespunks-watch-out {
+        width: 100%;
+        text-align: center;
+        margin-top: 90px;
+    }
+
+    .wavespunks-watch-out > p {
+        font-size: 12px;
     }
 
     .wavespunks-what {
         display: flex;
         justify-content: space-between;
         height: 500px;
-        margin-top: 170px;
+        margin-top: 90px;
     }
 
     .wavespunks-what-is {
