@@ -24,7 +24,7 @@ window.signer = new Signer({
 
 window.contractAddress = '3N5aN5RqVqtb8HbNghuNb1NygjYPFRKfE7E';
 
-if (window.location.href.indexOf('wavespunks.com') > -1 || window.location.href.indexOf('ost:') > -1)
+if (window.location.href.indexOf('wavespunks.com') > -1 || window.location.href.indexOf('ost:') > -1 || window.location.href.indexOf('wavespunks-app.pages.dev') > -1)
     new Vue({
         render: h => h(Index),
         el: '#app',
