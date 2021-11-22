@@ -93,7 +93,7 @@
                         <img src="/img/middle-ages-card.svg">
                         <div class="wavespunks-five-ages-text">
                             <h3>BLOCKCHAIN<br>MIDDLE&nbsp;AGES</h3>
-                            <p>ICO «gold rush»<br>Sahsa Ivanov & Waves foundation</p>
+                            <p>ICO «gold rush»<br>Sasha Ivanov & Waves foundation</p>
                             <p>Only <b>192 rare</b> waves punks<br>Only <b>10 super-rare</b> waves punks</p>
                         </div>
                     </div>
