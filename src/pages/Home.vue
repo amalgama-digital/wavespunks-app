@@ -36,7 +36,8 @@
                 <h2>WATCH OUT!</h2>
                 <p>THE PRICE WILL INCREASE<br>for every next 100 WAVES PUNKS</p>
                 WavesPunks left: {{ 1000 - punks_supply }}<br>
-                Current price: {{ (parseInt(punks_supply / 100) + 1) }} WAVES
+                Current price: {{ (parseInt(punks_supply / 100) + 1) }} WAVES<br><br>
+                <img src="/img/timeline.svg">
             </div>
             <div class="wavespunks-what">
                 <div class="wavespunks-what-is border-radius-18">
@@ -189,12 +190,14 @@
             </div>
         </div>
         <connect-wallet v-if="connect" :connect="connect" v-on:close="connect = $event" v-on:success="mint"></connect-wallet>
+        <notifications v-if="notify" :error="notify_error" :text="notify_text" v-on:close="notify = $event"></notifications>
     </div>
 </template>
 
 <script>
     import axios from "axios";
     import ConnectWallet from "../components/ConnectWallet.vue";
+    import Notifications from "../components/Notifications.vue";
 
     import { ProviderKeeper } from '@waves/provider-keeper';
     import { ProviderCloud } from '@waves.exchange/provider-cloud';
@@ -205,11 +208,15 @@
             return {
                 connect: false,
                 punks_supply: 0,
-                inviteKey: ""
+                inviteKey: "",
+                notify: false,
+                notify_error: false,
+                notify_text: ""
             }
         },
         components: {
-            ConnectWallet
+            ConnectWallet,
+            Notifications
         },
         async mounted() {
             let params = this.$route.params["id"];
@@ -266,12 +273,21 @@
                             value: this.inviteKey,
                         }],
                     },
-                }).broadcast();
+                }).broadcast().then(res => {
+                    console.log(res);
+                    this.notify = true;
+                    this.notify_error = false;
+                    this.notify_text = "Your transaction has been broadcast to network!";
+                }).catch(error => {
+                    console.error(error);
+                    this.notify = true;
+                    this.notify_error = true;
+                    this.notify_text = error.message;
+                });
             }
         }
     }
 </script>
-
 
 <style scoped>
     @media only screen and (max-width: 1440px) {
@@ -327,6 +343,12 @@
         .wavespunks-coming-soon {
             min-width: 330px;
             margin-left: 20px;
+        }
+    }
+
+    @media only screen and (max-width: 1200px) {
+        .wavespunks-watch-out > img:last-child {
+            width: 100%;
         }
     }
 
@@ -436,6 +458,10 @@
         .wavespunks-logo {
             display: flex;
             flex-direction: column;
+        }
+
+        .wavespunks-watch-out > img:last-child {
+            display: none;
         }
 
         .wavespunks-first {

@@ -57,7 +57,7 @@
     import ConnectWallet from "../components/ConnectWallet.vue";
 
     export default {
-        name: "Home",
+        name: "MyPunks",
         data(){
             return {
                 connect: false,
