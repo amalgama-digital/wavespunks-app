@@ -8,7 +8,7 @@
                 </div>
                 <div class="wavespunks-links">
                     <a href="/myPunks">MY PUNKS</a>
-                    <a id="discord" target="_blank" href="https://discord.gg/QqBptKxSzS">
+                    <a id="discord" target="_blank" href="https://discord.gg/gfpKDfRtvf">
                         <img src="/img/discord.svg">
                     </a>
                     <a id="telegram" target="_blank" href="https://t.me/wavespunks">
@@ -23,7 +23,7 @@
                 <div class="wavespunks-first-back border-radius-18">
                     <div class="wavespunks-first-text">
                         <h2 style="color: #FFFFFF;">FIRST-EVER NFT-PUNKS<br>ON WAVES BLOCKCHAIN</h2>
-                        <div class="wavespunks-get-one">
+                        <div class="wavespunks-get-one" v-if="punks_supply <= 999">
                             GET&nbsp;ONE&nbsp;NOW
                             <button @click="login">Mint&nbsp;a&nbsp;Waves&nbsp;Punk</button>
                         </div>
@@ -31,7 +31,7 @@
                     <img src="/img/first-punk.svg">
                 </div>
             </div>
-            <div class="wavespunks-watch-out">
+            <div class="wavespunks-watch-out" v-if="punks_supply <= 999">
                 <img src="/img/fire-watch.svg">
                 <h2>WATCH OUT!</h2>
                 <p>THE PRICE WILL INCREASE<br>for every next 100 WAVES PUNKS</p>
@@ -171,7 +171,7 @@
                     <p>DON’T&nbsp;MISS<br>THE&nbsp;TOKENIZED&nbsp;FUTURE</p>
                     <!-- <button>Mint a Waves Punk</button> -->
                     <div class="wavespunks-links">
-                        <a id="discord" target="_blank" href="https://discord.gg/QqBptKxSzS">
+                        <a id="discord" target="_blank" href="https://discord.gg/gfpKDfRtvf">
                             <img src="/img/discord-footer.svg">
                         </a>
                         <a id="telegram" target="_blank" href="https://t.me/wavespunks">

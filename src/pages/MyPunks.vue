@@ -22,7 +22,14 @@
                 </div>
             </div>
         </div>
-        <div class="my-punks">
+        <div class="wallet" v-if="!walletStatus">
+            <h2>Connect your Waves wallet</h2>
+            <button @click="connect = true">Connect wallet</button>
+        </div>
+        <div class="ref" v-else>
+            Your invite link: <a :href="link">{{ link }}</a>
+        </div>
+        <div class="my-punks" v-if="punks.length > 0">
             <div class="punk" v-for="(punk) in punks" v-bind:key="punk.id">
                 <img :src="`/punks/p${ punk.id }.png`">
                 <div>
@@ -36,6 +43,10 @@
                     <div class="punk-text">{{ punk.description }}</div>
                 </div>
             </div>
+        </div>
+        <div class="no-my-punks" v-else-if="walletStatus && punks.length <= 0">
+            <p>?</p>
+            <p>You don't have WavesPunks yet, your WavesPunks will be show a moment after mint</p>
         </div>
         <connect-wallet v-if="connect" :connect="connect" v-on:close="connect = $event" v-on:success="getMyPunks($event)"></connect-wallet>
     </div>
@@ -51,6 +62,8 @@
             return {
                 connect: false,
                 wallet: {},
+                walletStatus: false,
+                link: "",
                 punks: []
             }
         },
@@ -68,6 +81,8 @@
         },
         methods: {
             async getMyPunks(address) {
+                this.walletStatus = true;
+                this.link = `https://wavespunks.com/i/${address}`;
                 await axios.get(`${window.nodeURL}/assets/nft/${address}/limit/1000`)
                     .then(res => {
                         for(let i = 0; i < res.data.length; i++) {
@@ -89,12 +104,6 @@
 </script>
 
 <style scoped>
-    @media only screen and (max-width: 1024px) {
-        .wavespunks-header {
-            margin-left: 0px !important;
-        }
-    }
-
     @media only screen and (min-width: 769px) {
         .wavespunks-logo > p {
             margin-top: 80px;
@@ -153,17 +162,35 @@
         }
     }
 
-    .wavespunks-home {
-        margin: 40px;
+    button {
+        background: #0055FF;
+        border: 0;
+        box-shadow: 2px 2px 2px 0px rgba(6, 59, 166, 0.6), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+        color: white;
+        padding: 10px 20px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+
+    .wavespunks-home, .wallet, .ref, .my-punks, .no-my-punks {
         font-family: Inter;
         font-style: normal;
+    }
+
+    .wavespunks-home {
+        margin: 40px;
     }
 
     .wavespunks-header {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
-        margin-left: 70px;
     }
 
     .wavespunks-logo {
@@ -193,13 +220,36 @@
         color: #ED00CC;
     }
 
+    .wallet {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wallet > h2 {
+        font-weight: 500;
+    }
+
+    .ref {
+        display: flex;
+        justify-content: center;
+        background: #F1F1F1;
+        border-radius: 18px;
+        box-shadow: 2px 2px 2px 0px rgb(206, 206, 206), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+        margin: 40px;
+        padding: 20px;
+    }
+
+    .ref > a, .ref > a:hover, .ref > a:active {
+        color: black;
+    }
+
     .my-punks {
         margin: 40px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-        font-family: Inter;
-        font-style: normal;
     }
 
     .punk {
@@ -238,5 +288,27 @@
         font-weight: 500;
         font-size: 12px;
         line-height: 15px;
+    }
+
+    .no-my-punks {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #F1F1F1;
+        border-radius: 18px;
+        box-shadow: 2px 2px 2px 0px rgb(206, 206, 206), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+        width: 357px;
+        height: 500px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    .no-my-punks > p:first-child {
+        font-size: 130px;
+    }
+
+    .no-my-punks > p:nth-child(2) {
+        text-align: center;
     }
 </style>
