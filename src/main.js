@@ -16,13 +16,11 @@ Vue.use(VueAxios, axios);
 
 window.rare = rare;
 
-window.nodeURL = 'https://nodes-testnet.wavesnodes.com';
+window.nodeURL = 'https://nodes.wavesnodes.com';
 
-window.signer = new Signer({
-    NODE_URL: 'https://nodes-testnet.wavesnodes.com'
-});
+window.signer = new Signer();
 
-window.contractAddress = '3N5aN5RqVqtb8HbNghuNb1NygjYPFRKfE7E';
+window.contractAddress = '3P8rLVnwrTf4k5AB3emuduhZZb1yKcitTHy';
 
 if (window.location.href.indexOf('wavespunks.com') > -1 || window.location.href.indexOf('ost:') > -1 || window.location.href.indexOf('wavespunks-app.pages.dev') > -1)
     new Vue({
