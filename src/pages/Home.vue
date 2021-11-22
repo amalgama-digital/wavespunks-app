@@ -37,7 +37,12 @@
                 <p>THE PRICE WILL INCREASE<br>for every next 100 WAVES PUNKS</p>
                 WavesPunks left: {{ 1000 - punks_supply }}<br>
                 Current price: {{ (parseInt(punks_supply / 100) + 1) }} WAVES<br><br>
-                <img src="/img/timeline.svg">
+                <div>
+                    <div :style="fire">
+                        <img src="/img/fire-timeline.svg">
+                    </div>
+                    <img src="/img/timeline.svg">
+                </div>
             </div>
             <div class="wavespunks-what">
                 <div class="wavespunks-what-is border-radius-18">
@@ -237,6 +242,11 @@
                     console.error(err);
                 });
         },
+        computed: {
+            fire() {
+                return "width: " + (this.punks_supply / 10) + "%";
+            }
+        },
         methods: {
             login() {
                 const data = JSON.parse(window.localStorage.getItem("loginChoice"));
@@ -347,8 +357,8 @@
     }
 
     @media only screen and (max-width: 1200px) {
-        .wavespunks-watch-out > img:last-child {
-            width: 100%;
+        .wavespunks-watch-out > div:last-child {
+            display: none;
         }
     }
 
@@ -458,10 +468,6 @@
         .wavespunks-logo {
             display: flex;
             flex-direction: column;
-        }
-
-        .wavespunks-watch-out > img:last-child {
-            display: none;
         }
 
         .wavespunks-first {
@@ -845,6 +851,26 @@
 
     .wavespunks-watch-out > p {
         font-size: 12px;
+    }
+
+    .wavespunks-watch-out > div {
+        position: relative;
+        width: min-content;
+        padding-top: 20px;
+        margin: auto;
+    }
+
+    .wavespunks-watch-out > div > div:first-child {
+        position: absolute;
+        z-index: 0;
+        left: 4px;
+        bottom: 20px;
+        overflow: hidden;
+    }
+
+    .wavespunks-watch-out > div > img:last-child {
+        position: relative;
+        z-index: 1;
     }
 
     .wavespunks-what {
