@@ -26,8 +26,15 @@
             <h2>Connect your Waves wallet</h2>
             <button @click="connect = true">Connect wallet</button>
         </div>
-        <div class="ref" v-else>
-            Your invite link: <a :href="link">{{ link }}</a>
+        <div class="panel" v-else>
+            <div class="ref">
+                Your invite link: <a :href="link">{{ link }}</a>
+                <p>WavesPunks has a decentralized reward system for inviting users! 10% of the purchase amount will be sent directly to your Waves wallet! No worries the price for your friend won't change.</p>
+            </div>
+            <div class="log-out">
+                Your address: {{ this.wallet.address }}
+                <button @click="logout">Log out</button>
+            </div>
         </div>
         <div class="my-punks" v-if="punks.length > 0">
             <div class="punk" v-for="(punk) in punks" v-bind:key="punk.id">
@@ -82,6 +89,7 @@
         methods: {
             async getMyPunks(address) {
                 this.walletStatus = true;
+                this.wallet.address = address;
                 this.link = `https://wavespunks.com/i/${address}`;
                 await axios.get(`${window.nodeURL}/assets/nft/${address}/limit/1000`)
                     .then(res => {
@@ -98,6 +106,10 @@
                     .catch(err => {
                         console.error(err);
                     });
+            },
+            logout () {
+                window.localStorage.removeItem("loginChoice");
+                location.reload();
             }
         }
     }
@@ -178,7 +190,7 @@
         cursor: pointer;
     }
 
-    .wavespunks-home, .wallet, .ref, .my-punks, .no-my-punks {
+    .wavespunks-home, .wallet, .panel, .my-punks, .no-my-punks {
         font-family: Inter;
         font-style: normal;
     }
@@ -231,18 +243,34 @@
         font-weight: 500;
     }
 
-    .ref {
+    .panel {
         display: flex;
+        flex-direction: row;
         justify-content: center;
+        flex-wrap: wrap;
+        font-weight: 300;
+    }
+
+    .ref, .log-out {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         background: #F1F1F1;
         border-radius: 18px;
         box-shadow: 2px 2px 2px 0px rgb(206, 206, 206), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
         margin: 40px;
         padding: 20px;
+        text-align: center;
+        width: 530px;
     }
 
     .ref > a, .ref > a:hover, .ref > a:active {
         color: black;
+    }
+
+    .log-out > button {
+        margin-top: 10px;
     }
 
     .my-punks {
