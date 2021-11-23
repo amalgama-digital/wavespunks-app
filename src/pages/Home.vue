@@ -86,7 +86,7 @@
                         <div class="wavespunks-five-ages-text" style="color: white;">
                             <h3>CRYPTO<br>ANTIQUITY</h3>
                             <p>The concept of bit gold<br>Nick Sabo & Satoshi Nakamoto</p>
-                            <p>Only <b>192 rare</b> waves punks<br>Only <b>10 super-rare</b> waves punks</p>
+                            <p>Only <b>192 unique</b> waves punks<br>Only <b>10 rare</b> waves punks</p>
                         </div>
                     </div>
                     <div class="wavespunks-middle-ages border-radius-18">
@@ -94,7 +94,7 @@
                         <div class="wavespunks-five-ages-text">
                             <h3>BLOCKCHAIN<br>MIDDLE&nbsp;AGES</h3>
                             <p>ICO «gold rush»<br>Sasha Ivanov & Waves foundation</p>
-                            <p>Only <b>192 rare</b> waves punks<br>Only <b>10 super-rare</b> waves punks</p>
+                            <p>Only <b>192 unique</b> waves punks<br>Only <b>10 rare</b> waves punks</p>
                         </div>
                     </div>
                     <div class="wavespunks-the-great border-radius-18">
@@ -102,7 +102,7 @@
                         <div class="wavespunks-five-ages-text" style="color: white;">
                             <h3>THE<br>GREAT</h3>
                             <p>SEC strikes back<br>Crypto Kitties & Bitcoin Futures</p>
-                            <p style="color: #FF00CF;">Only <b>192 rare</b> waves punks<br>Only <b>10 super-rare</b> waves punks</p>
+                            <p style="color: #FF00CF;">Only <b>192 unique</b> waves punks<br>Only <b>10 rare</b> waves punks</p>
                             <img src="/img/crypto-mess.svg">
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                         <div class="wavespunks-five-ages-text" style="color: white;">
                             <h3>CRYPTO<br>RENAISSANCE</h3>
                             <p>Rise of NFT & DeFi-revolution<br>Beeple & Waves Ducks</p>
-                            <p>Only <b>192 rare</b> waves punks<br>Only <b>10 super-rare</b> waves punks</p>
+                            <p>Only <b>192 unique</b> waves punks<br>Only <b>10 rare</b> waves punks</p>
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                     <img src="/img/future-letters.svg">
                     <div>
                         <p>Blockchain-based states<br>Last Bitcoin on Earth</p>
-                        <p>Only <b>191 rare</b> waves punks<br>Only <b>1 ULTRA-rare</b> waves punks</p>
+                        <p>Only <b>191 unique</b> waves punks<br>Only <b>1 ULTRA-rare</b> waves punks</p>
                     </div>
                     <img src="/img/future-head.svg">
                 </div>
