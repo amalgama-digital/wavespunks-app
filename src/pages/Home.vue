@@ -244,7 +244,7 @@
         },
         computed: {
             fire() {
-                return "width: " + (this.punks_supply / 10) + "%";
+                return "width: calc(" + (this.punks_supply / 10) + "% - 28px)";
             }
         },
         methods: {
