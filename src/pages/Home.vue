@@ -131,7 +131,7 @@
                     <div class="wavespunks-current-collection border-radius-18">
                         <div style="display: flex; flex-direction: row;">
                             <img src="/img/fire.svg">
-                            <p>current<br>collection</p>
+                            <p>SOLD OUT</p>
                         </div>
                         <div>
                             <p>NFT COLLECTION</p>
@@ -1074,6 +1074,7 @@
         line-height: 15px;
         color: #FF00CF;
         margin-bottom: 22px;
+        margin-top: 15px;
     }
 
     .wavespunks-current-collection > div:first-child > p {
