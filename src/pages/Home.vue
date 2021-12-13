@@ -23,10 +23,13 @@
                 <div class="wavespunks-first-back border-radius-18">
                     <div class="wavespunks-first-text">
                         <h2 style="color: #FFFFFF;">FIRST-EVER NFT-PUNKS<br>ON WAVES BLOCKCHAIN</h2>
-                        <div class="wavespunks-get-one" v-if="punks_supply <= 999">
+                        <div class="wavespunks-get-one">
+                            <button @click="market">MARKETPLACE</button>
+                        </div>
+                        <!-- <div class="wavespunks-get-one" v-if="punks_supply <= 999">
                             GET&nbsp;ONE&nbsp;NOW
                             <button @click="login">Mint&nbsp;a&nbsp;Waves&nbsp;Punk</button>
-                        </div>
+                        </div> -->
                     </div>
                     <img src="/img/first-punk.svg">
                 </div>
@@ -255,6 +258,9 @@
                 } else {
                     this.mint();
                 }
+            },
+            market() {
+                window.location.href = "https://wavesmarketplace.com/";
             },
             async mint() {
                 const data = JSON.parse(window.localStorage.getItem("loginChoice"));

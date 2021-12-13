@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="my-punks" v-if="punks.length > 0">
-            <div class="punk" v-for="(punk) in punks" v-bind:key="punk.id">
+            <a :href="`https://wavesmarketplace.com/asset/${punk.assetId}`" class="punk" v-for="(punk) in punks" v-bind:key="punk.id">
                 <img :src="`/punks/p${ punk.id }.png`">
                 <div>
                     <div class="punk-name">
@@ -49,7 +49,7 @@
                     </div>
                     <div class="punk-text">{{ punk.description }}</div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="no-my-punks" v-else-if="walletStatus && punks.length <= 0">
             <p>?</p>
@@ -96,6 +96,7 @@
                         for(let i = 0; i < res.data.length; i++) {
                             if (res.data[i].issuer == window.contractAddress) {
                                 let data = JSON.parse(res.data[i].description);
+                                data.assetId = res.data[i].assetId;
                                 if (data.id <= 40) {
                                     data.description = window.rare[data.id];
                                 }
@@ -288,6 +289,12 @@
         box-shadow: 2px 2px 2px 0px rgb(206, 206, 206), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
         margin-top: 20px;
         padding: 20px;
+        text-decoration: none;
+        color: black;
+    }
+
+    .punk:hover, .punk:active {
+        color: black;
     }
 
     .punk > img {
