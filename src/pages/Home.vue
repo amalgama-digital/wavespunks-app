@@ -172,11 +172,11 @@
         <div class="wavespunks-footer">
             <div class="wavespunks-footer-wrapper">
                 <div class="wavespunks-footer-logo">
-                    <img src="/img/logo-footer.svg">
+                    <img src="/img/logo-footer-zombie.svg">
                 </div>
                 <div>
                     <p>DON’T&nbsp;MISS<br>THE&nbsp;TOKENIZED&nbsp;FUTURE</p>
-                    <!-- <button>Mint a Waves Punk</button> -->
+                    <button @click="login">Mint a Waves Punk</button>
                     <div class="wavespunks-links">
                         <a id="discord" target="_blank" href="https://discord.gg/gfpKDfRtvf">
                             <img src="/img/discord-footer.svg">
@@ -190,8 +190,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="/img/footer-punk.svg">
-                    <img src="/img/only-nft.svg">
+                    <img src="/img/footer-brain.svg">
                 </div>
             </div>
         </div>
@@ -1213,8 +1212,9 @@
         justify-content: space-between;
         align-items: center;
         padding: 0 160px;
-        padding-top: 25px;
-        background: radial-gradient(46.38% 222.62% at 47.18% 167.45%, #0055FF 0.22%, rgba(0, 85, 255, 0) 100%);
+        padding-top: 75px;
+        padding-bottom: 50px;
+        background: radial-gradient(46.38% 222.62% at 47.18% 167.45%, #7000FF 0.22%, rgba(0, 85, 255, 0) 100%);
     }
 
     .wavespunks-footer-logo {
@@ -1227,6 +1227,11 @@
         font-size: 10px;
         line-height: 17px;
         margin-bottom: 10px;
+    }
+
+    .wavespunks-footer-wrapper button {
+        margin-top: 40px;
+        margin-bottom: 40px;
     }
 
     .wavespunks-footer-wrapper > div:nth-child(2) {
