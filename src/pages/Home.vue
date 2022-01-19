@@ -4,7 +4,6 @@
             <div class="wavespunks-header">
                 <div class="wavespunks-logo">
                     <img src="/img/logo.svg">
-                    <p>CRYPTO CHRONICLES</p>
                 </div>
                 <div class="wavespunks-links">
                     <a href="/myPunks">MY PUNKS</a>
@@ -22,22 +21,23 @@
             <div class="wavespunks-first border-radius-18">
                 <div class="wavespunks-first-back border-radius-18">
                     <div class="wavespunks-first-text">
-                        <h2 style="color: #FFFFFF;">FIRST-EVER NFT-PUNKS<br>ON WAVES BLOCKCHAIN</h2>
-                        <div class="wavespunks-get-one">
+                        <h2 style="color: #FFFFFF;">WAVES PUNKS ZOMBIE</h2>
+                        <p style="color: #FFFFFF;">Second Chapter of the first-ever NFT-punks on WAVES blockchain</p>
+                        <!-- <div class="wavespunks-get-one">
                             <button @click="market">MARKETPLACE</button>
-                        </div>
-                        <!-- <div class="wavespunks-get-one" v-if="punks_supply <= 999">
+                        </div> -->
+                        <div class="wavespunks-get-one" v-if="punks_supply <= 999">
                             GET&nbsp;ONE&nbsp;NOW
                             <button @click="login">Mint&nbsp;a&nbsp;Waves&nbsp;Punk</button>
-                        </div> -->
+                        </div>
                     </div>
-                    <img src="/img/first-punk.svg">
+                    <img src="/img/first-zombie.svg">
                 </div>
             </div>
             <div class="wavespunks-watch-out" v-if="punks_supply <= 999">
                 <img src="/img/fire-watch.svg">
                 <h2>WATCH OUT!</h2>
-                <p>THE PRICE WILL INCREASE<br>for every next 100 WAVES PUNKS</p>
+                <p>THE PRICE WILL INCREASE<br>for every next 200 WAVES PUNKS ZOMBIE</p>
                 WavesPunks left: {{ 1000 - punks_supply }}<br>
                 Current price: {{ (parseInt(punks_supply / 100) + 1) }} WAVES<br><br>
                 <div>
@@ -56,17 +56,17 @@
                     </div>
                 </div>
                 <div class="wavespunks-what-four">
-                    <div class="border-radius-18" style="background: #0055FF;">
-                        <img src="/img/only-nft.svg">
+                    <div class="border-radius-18" style="background: #7000FF;">
+                        <img src="/img/two-collections.svg">
                     </div>
                     <div class="border-radius-18" style="background: #0A0A0B;">
-                        <img src="/img/first-of-it-s-kind.svg">
+                        <img src="/img/first-of-it-s-kind-zombie.svg">
                     </div>
                     <div class="border-radius-18" style="background: #FFFFFF;">
                         <img src="/img/waves-community.svg">
                     </div>
                     <div class="border-radius-18" style="background: #000000;">
-                        <div style="background: radial-gradient(99.15% 148.72% at 93.42% 110.15%, #0055FF 0.22%, rgba(0, 85, 255, 0) 100%); width: 100%; height: 100%; border-radius: 18px;">
+                        <div style="background: radial-gradient(99.15% 148.72% at 93.42% 110.15%, #7000FF 0.22%, rgba(0, 85, 255, 0) 100%); width: 100%; height: 100%; border-radius: 18px;">
                             <img src="/img/crypto-enthusiasts.svg">
                         </div>
                     </div>
@@ -131,20 +131,19 @@
             <div class="wavespunks-upcoming">
                 <h2>UPCOMING&nbsp;NFT<br>COLLECTIONS</h2>
                 <div class="wavespunks-upcoming-four">
-                    <div class="wavespunks-current-collection border-radius-18">
-                        <div style="display: flex; flex-direction: row;">
-                            <img src="/img/fire.svg">
-                            <p>SOLD OUT</p>
-                        </div>
+                    <div class="wavespunks-first-collection border-radius-18">
                         <div>
                             <p>NFT COLLECTION</p>
-                            <p>PUNKS</p>
+                            <p>CRYPTO CHRONICLES</p>
                         </div>
-                        <img src="/img/current-punk-card.svg">
+                        <img src="/img/first-punk-card.svg">
                     </div>
-                    <div class="wavespunks-coming-soon border-radius-18">
-                        <p>?</p>
-                        <p>coming<br>soon</p>
+                    <div class="wavespunks-second-collection border-radius-18">
+                        <div style="display: flex; flex-direction: row;">
+                            <img src="/img/fire.svg">
+                            <p>current<br>collection</p>
+                        </div>
+                        <img src="/img/second-punk-card.svg">
                     </div>
                     <div class="wavespunks-coming-soon border-radius-18">
                         <p>?</p>
@@ -174,7 +173,6 @@
             <div class="wavespunks-footer-wrapper">
                 <div class="wavespunks-footer-logo">
                     <img src="/img/logo-footer.svg">
-                    <p>CRYPTO CHRONICLES</p>
                 </div>
                 <div>
                     <p>DON’T&nbsp;MISS<br>THE&nbsp;TOKENIZED&nbsp;FUTURE</p>
@@ -440,8 +438,8 @@
             left: 125px !important;
         }
 
-        .wavespunks-current-collection > div:nth-child(2) > p:nth-child(2) {
-            font-size: 32px !important;
+        .wavespunks-first-collection > div:nth-child(1) > p:nth-child(2) {
+            font-size: 22px !important;
         }
 
         .wavespunks-footer-wrapper > div:nth-child(3) > img:nth-child(2) {
@@ -723,7 +721,7 @@
             height: 366px !important;
         }
 
-        .wavespunks-current-collection > img {
+        .wavespunks-first-collection > img, .wavespunks-second-collection > img {
             width: 200px !important;
         }
 
@@ -781,8 +779,9 @@
     .wavespunks-header {
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
-        margin-left: 70px;
+        align-items: flex-end;    
+        margin-left: 40px;
+        margin-right: 40px;
     }
 
     .wavespunks-logo {
@@ -810,13 +809,13 @@
 
     .wavespunks-first {
         margin-top: 70px;
-        background: radial-gradient(49.91% 258.29% at 60.66% 81.09%, #0055FF 0%, #000000 100%);
+        background: radial-gradient(42.36% 225.92% at 65.96% 88.64%, #7000FF 0%, #000000 100%);
         height: 550px;
         box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2)
     }
 
     .wavespunks-first-back {
-        background-image: url("/img/first-back.svg");
+        background-image: url("/img/first-back-zombie.svg");
         background-repeat: no-repeat;
         background-position: right;
         height: 100%;
@@ -835,6 +834,14 @@
         flex-direction: column;
         justify-content: center;
         padding: 0 60px;
+    }
+
+    .wavespunks-first-text > h2, .wavespunks-first-text > p {
+        color: white;
+    }
+
+    .wavespunks-first-text > p {
+        font-weight: 300;
     }
 
     .wavespunks-get-one {
@@ -1066,28 +1073,22 @@
         box-shadow: 2px 2px 2px 0px rgb(206, 206, 206), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
     }
 
-    .wavespunks-current-collection {
+    /* Upcoming | First collection */
+
+    .wavespunks-first-collection {
         background: #FFD645;
     }
 
-    .wavespunks-current-collection > div {
+    .wavespunks-first-collection > div {
         margin-left: 24px;
     }
 
-    .wavespunks-current-collection > div:first-child {
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 15px;
-        color: #FF00CF;
-        margin-bottom: 22px;
-        margin-top: 15px;
+    .wavespunks-first-collection > div:nth-child(1) {
+        margin-top: 20px;
+        margin-bottom: 50px;
     }
 
-    .wavespunks-current-collection > div:first-child > p {
-        margin-left: 7px;
-    }
-
-    .wavespunks-current-collection > div:nth-child(2) > p:first-child {
+    .wavespunks-first-collection > div:nth-child(1) > p:first-child {
         font-weight: 500;
         font-size: 14px;
         line-height: 17px;
@@ -1095,12 +1096,58 @@
         margin: 0;
     }
 
-    .wavespunks-current-collection > div:nth-child(2) > p:nth-child(2) {
+    .wavespunks-first-collection > div:nth-child(1) > p:nth-child(2) {
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 36px;
+        margin: 0;
+    }
+
+    /* Upcoming | Second collection */
+
+    .wavespunks-second-collection {
+        background: url('/img/second-card-back.svg'), radial-gradient(134.56% 88.81% at 92.56% 133.41%, #7000FF 0%, rgba(0, 0, 0, 1) 100%);
+        background-repeat: no-repeat;
+    }
+
+    .wavespunks-second-collection > div {
+        margin-left: 24px;
+    }
+
+    .wavespunks-second-collection > div:first-child {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        color: #FF00CF;
+        margin-bottom: -8px;
+        margin-top: 15px;
+    }
+
+    .wavespunks-second-collection > div:first-child > p {
+        margin-left: 7px;
+    }
+
+    .wavespunks-second-collection > div:nth-child(2) > p:first-child {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        color: #FF00CF;
+        margin: 0;
+    }
+
+    .wavespunks-second-collection > div:nth-child(2) > p:nth-child(2) {
         font-weight: 500;
         font-size: 52px;
         line-height: 63px;
         margin: 0;
     }
+
+    .wavespunks-second-collection > img {
+        margin-left: 12.5px;
+        margin-right: 12.5px;
+    }
+
+    /* Upcoming | Coming Soon */
 
     .wavespunks-coming-soon {
         display: flex;
