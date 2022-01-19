@@ -81,6 +81,39 @@
                 <div>
                 </div>
             </div> -->
+            <div class="wavespunks-zombie-collection">
+                <h2>WAVES&nbsp;PUNKS&nbsp;ZOMBIE<br>The&nbsp;second&nbsp;collection</h2>
+                <div class="wavespunks-zombie-collection-four">
+                    <div class="wavespunks-new-1000-nft border-radius-18">
+                        <img src="/img/unique-nft-card.svg">
+                        <div class="wavespunks-zombie-collection-text" style="color: white;">
+                            <h3>New 1000<br>UNIQUE NFTs</h3>
+                            <p>Including super-rare, totally<br>mutated punks</p>
+                        </div>
+                    </div>
+                    <div class="wavespunks-explore-new-world border-radius-18">
+                        <img src="/img/new-world-card.svg">
+                        <div class="wavespunks-zombie-collection-text">
+                            <h3>EXPLORE THE<br>NEW WORLD</h3>
+                            <p>ZOMBIES are the first step of<br>the upcoming WAVES PUNKS<br>Multiverse</p>
+                        </div>
+                    </div>
+                    <div class="wavespunks-additional-assets border-radius-18">
+                        <img src="/img/additional-assets-card.svg">
+                        <div class="wavespunks-zombie-collection-text" style="color: white;">
+                            <h3>NEW<br>ADDITIONAL<br>ASSETS</h3>
+                            <p>Special NFT vaccines, weapons<br>and defense tools of the zombie<br>universe</p>
+                        </div>
+                    </div>
+                    <div class="wavespunks-giveaway border-radius-18">
+                        <img src="/img/giveaway-card.svg">
+                        <div class="wavespunks-zombie-collection-text" style="color: white;">
+                            <h3>WAVES PUNKS<br>GIVEAWAY</h3>
+                            <p>Get your chance<br>to win free waves punk<br>or something else!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="wavespunks-five-ages">
                 <h2>FIVE&nbsp;AGES&nbsp;OF<br>CRYPTO&nbsp;HISTORY</h2>
                 <div class="wavespunks-five-ages-four">
@@ -176,7 +209,7 @@
                 </div>
                 <div>
                     <p>DON’T&nbsp;MISS<br>THE&nbsp;TOKENIZED&nbsp;FUTURE</p>
-                    <button @click="login">Mint a Waves Punk</button>
+                    <button @click="login" v-if="punks_supply <= 999">Mint a Waves Punk</button>
                     <div class="wavespunks-links">
                         <a id="discord" target="_blank" href="https://discord.gg/gfpKDfRtvf">
                             <img src="/img/discord-footer.svg">
@@ -917,11 +950,11 @@
         margin-left: 20px;
     }
 
-    .wavespunks-five-ages {
+    .wavespunks-five-ages, .wavespunks-zombie-collection {
         margin-top: 180px;
     }
 
-    .wavespunks-five-ages h2 {
+    .wavespunks-five-ages h2, .wavespunks-zombie-collection h2 {
         margin-left: 60px;
         margin-bottom: 50px;
     }
@@ -934,7 +967,7 @@
         height: 49%;
     }
 
-    .wavespunks-five-ages-four {
+    .wavespunks-five-ages-four, .wavespunks-zombie-collection-four {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -942,7 +975,8 @@
         height: 675px;
     }
 
-    .wavespunks-five-ages-four > div {
+    .wavespunks-five-ages-four > div,
+    .wavespunks-zombie-collection-four > div {
         position: relative;
         height: 321px;
         display: flex;
@@ -953,14 +987,16 @@
         padding: 0 60px;
     }
 
-    .wavespunks-five-ages-four > div > img {
+    .wavespunks-five-ages-four > div > img,
+    .wavespunks-zombie-collection-four > div > img {
         position: absolute;
         right: 0;
         bottom: 0;
         z-index: 0;
     }
 
-    .wavespunks-five-ages-four > div > div {
+    .wavespunks-five-ages-four > div > div,
+    .wavespunks-zombie-collection-four > div > div {
         z-index: 1;
     }
 
@@ -990,19 +1026,44 @@
         box-shadow: 2px 2px 2px 0px rgba(219, 140, 122, 0.6), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
     }
 
-    .wavespunks-five-ages-text > p:nth-child(2) {
+    .wavespunks-new-1000-nft {
+        background: #000000;
+        box-shadow: 2px 2px 2px 0px rgba(1, 1, 1, 0.6), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+    }
+
+    .wavespunks-explore-new-world {
+        background: #FFAB17;
+    }
+
+    .wavespunks-additional-assets {
+        background: url('/img/additional-assets-card-back.svg'), #000000;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .wavespunks-giveaway {
+        /* background: #000000; */
+        background: url('/img/giveaway-card-back.svg'), radial-gradient(76.88% 160.97% at 83% 151.3%, #7000FF 0%, rgba(0, 0, 0, 1) 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .wavespunks-five-ages-text > p:nth-child(2),
+    .wavespunks-zombie-collection-text > p:nth-child(2) {
         font-weight: 300;
         font-size: 18px;
         line-height: 22px;
     }
 
-    .wavespunks-five-ages-text > p:nth-child(3) {
+    .wavespunks-five-ages-text > p:nth-child(3),
+    .wavespunks-zombie-collection-text > p:nth-child(3) {
         font-weight: 500;
         font-size: 20px;
         line-height: 24px;
     }
 
-    .wavespunks-five-ages-text > p:nth-child(3) > b {
+    .wavespunks-five-ages-text > p:nth-child(3) > b,
+    .wavespunks-zombie-collection-text > p:nth-child(3) > b {
         font-weight: 500;
     }
 
