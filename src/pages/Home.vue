@@ -7,14 +7,14 @@
                 </div>
                 <div class="wavespunks-links">
                     <a href="/myPunks">MY PUNKS</a>
+                    <a id="reddit" target="_blank" href="https://www.reddit.com/r/WavesPunks/">
+                        <img src="/img/reddit.svg">
+                    </a>
                     <a id="discord" target="_blank" href="https://discord.gg/gfpKDfRtvf">
                         <img src="/img/discord.svg">
                     </a>
                     <a id="telegram" target="_blank" href="https://t.me/wavespunks_en">
                         <img src="/img/telegram.svg">
-                    </a>
-                    <a id="instagram" target="_blank" href="https://instagram.com/waves.punks">
-                        <img src="/img/instagram.svg">
                     </a>
                 </div>
             </div>
@@ -51,8 +51,9 @@
                 <div class="wavespunks-what-is border-radius-18">
                     <h2>WHAT&nbsp;IS<br>WAVES&nbsp;PUNKS?</h2>
                     <div>
-                        <p>Blockchain platform WAVES has always been at the forefront of blockchain technology development.</p>
-                        <p>WAVES PUNKS is the first collection of digital punks on Waves blockchain, dedicated both to the major milestones in cryptocurrency history and to the role of Waves blockchain in it.</p>
+                        <p>PUNKS is the first-ever NFT “punk-type” project on WAVES blockchain.</p>
+                        <p>In December 2021 the first collection was released, dedicated to the blockchain history and the WAVES platform in particular.</p>
+                        <p>In January 2022 the second collection is on it’s way. Named as WAVES PUNKS: ZOMBIE, the collection expands the WAVES PUNKS universe into multiverse.</p>
                     </div>
                 </div>
                 <div class="wavespunks-what-four">
@@ -63,24 +64,25 @@
                         <img src="/img/first-of-it-s-kind-zombie.svg">
                     </div>
                     <div class="border-radius-18" style="background: #FFFFFF;">
-                        <img src="/img/waves-community.svg">
+                        <img src="/img/waves-association.svg">
                     </div>
                     <div class="border-radius-18" style="background: #000000;">
                         <div style="background: radial-gradient(99.15% 148.72% at 93.42% 110.15%, #7000FF 0.22%, rgba(0, 85, 255, 0) 100%); width: 100%; height: 100%; border-radius: 18px;">
-                            <img src="/img/crypto-enthusiasts.svg">
+                            <img src="/img/psc.svg">
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <div>
+            <div class="wavespunks-how-to-mint border-radius-18">
                 <div>
                     <h2>HOW TO MINT</h2>
-                    <div>IT’S THAT EASY:</div>
-                    <button>Mint a Waves Punk</button>
+                    <div>IT’S THAT EASY</div>
+                    <button @click="login" v-if="punks_supply <= 999">Mint a Waves Punk</button>
                 </div>
-                <div>
+                <div class="wavespunks-how-to-mint-video border-radius-18">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xGzMK_nKemM?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-            </div> -->
+            </div>
             <div class="wavespunks-zombie-collection">
                 <h2>WAVES&nbsp;PUNKS&nbsp;ZOMBIE<br>The&nbsp;second&nbsp;collection</h2>
                 <div class="wavespunks-zombie-collection-four">
@@ -167,7 +169,7 @@
                     <div class="wavespunks-first-collection border-radius-18">
                         <div>
                             <p>NFT COLLECTION</p>
-                            <p>CRYPTO CHRONICLES</p>
+                            <p>CRYPTO<br>CHRONICLES</p>
                         </div>
                         <img src="/img/first-punk-card.svg">
                     </div>
@@ -189,15 +191,22 @@
                 </div>
             </div>
             <div class="wavespunks-join-the-global">
-                <h2>JOIN&nbsp;THE&nbsp;GLOBAL<br>PUNKS&nbsp;MOVEMENT</h2>
+                <h2>
+                    <img src="/img/waves-mp-footer.svg">
+                    <p>Our fast-growing NFT marketplace</p>
+                </h2>
                 <div>
                     <div>
-                        <h2>134 615 USD</h2>
-                        <p>With the average selling price of<br>punk over the past year equals</p>
+                        <h2>50&nbsp;WAVES</h2>
+                        <p>Biggest one-time NFT sale</p>
                     </div>
                     <div>
-                        <h2>1 786 821 759 USD</h2>
-                        <p>And with the total value of punks sold over the last<br>year equals</p>
+                        <h2>5500&nbsp;WAVES</h2>
+                        <p>First collection cap</p>
+                    </div>
+                    <div>
+                        <h2>1000+&nbsp;WAVES</h2>
+                        <p>Secondary transactions cap</p>
                     </div>
                 </div>
             </div>
@@ -346,7 +355,7 @@
         }
 
         .wavespunks-what-four > div:nth-child(1) > img {
-            height: 80%;
+            width: 80%;
         }
 
         .wavespunks-what-four > div:nth-child(2) > img {
@@ -362,6 +371,7 @@
         }
 
         .wavespunks-five-ages-text > p:nth-child(2),
+        .wavespunks-zombie-collection-text > p:nth-child(2),
         .wavespunks-tokenized > div > p:nth-child(1) {
             font-size: 16px !important;
         }
@@ -386,7 +396,8 @@
             display: none; /* for Chrome, Safari, and Opera */
         }
 
-        .wavespunks-coming-soon {
+        .wavespunks-coming-soon,
+        .wavespunks-second-collection {
             min-width: 330px;
             margin-left: 20px;
         }
@@ -395,6 +406,14 @@
     @media only screen and (max-width: 1200px) {
         .wavespunks-watch-out > div:last-child {
             display: none;
+        }
+
+        .wavespunks-how-to-mint {
+            flex-direction: column !important;
+        }
+
+        .wavespunks-how-to-mint-video {
+            margin-top: 20px !important;
         }
     }
 
@@ -407,10 +426,6 @@
         h3 {
             font-size: 20px !important;
             line-height: 28px !important;
-        }
-
-        .wavespunks-header {
-            margin-left: 0px !important;
         }
 
         .wavespunks-get-one {
@@ -452,15 +467,18 @@
             height: 75%;
         }
 
-        .wavespunks-five-ages-four {
+        .wavespunks-five-ages-four,
+        .wavespunks-zombie-collection-four {
             height: max-content !important;
         }
 
-        .wavespunks-five-ages-four > div {
+        .wavespunks-five-ages-four > div,
+        .wavespunks-zombie-collection-four > div {
             width: 100% !important;
         }
 
-        .wavespunks-middle-ages, .wavespunks-the-great, .wavespunks-crypto-renaissance {
+        .wavespunks-middle-ages, .wavespunks-the-great, .wavespunks-crypto-renaissance,
+        .wavespunks-explore-new-world, .wavespunks-additional-assets, .wavespunks-giveaway {
             margin-top: 30px;
         }
 
@@ -470,8 +488,17 @@
             left: 125px !important;
         }
 
+        .wavespunks-first-collection > div:nth-child(1) {
+            margin-bottom: 93px !important;
+        }
+
         .wavespunks-first-collection > div:nth-child(1) > p:nth-child(2) {
             font-size: 22px !important;
+            line-height: 26px !important;
+        }
+
+        .wavespunks-footer-wrapper {
+            padding: 75px 100px 50px 100px !important;
         }
 
         .wavespunks-footer-wrapper > div:nth-child(3) > img:nth-child(2) {
@@ -527,6 +554,11 @@
             text-align: center;
         }
 
+        .wavespunks-how-to-mint-video {
+            width: 100% !important;
+            height: 400px !important;
+        }
+
         .wavespunks-tokenized {
             flex-wrap: wrap;
             height: 100% !important;
@@ -573,15 +605,21 @@
             align-items: center !important;
         }
 
+        .wavespunks-header > .wavespunks-links {
+            margin-top: 20px;
+        }
+
         .wavespunks-first-text {
             align-items: center;
         }
 
-        .wavespunks-five-ages-four > div {
+        .wavespunks-five-ages-four > div,
+        .wavespunks-zombie-collection-four > div {
             height: 221px !important;
         }
 
-        .wavespunks-five-ages-four > div > img {
+        .wavespunks-five-ages-four > div > img,
+        .wavespunks-zombie-collection-four > div > img {
             height: 100%;
         }
 
@@ -601,6 +639,10 @@
             position: absolute;
             right: 20px;
             bottom: -10px;
+        }
+
+        .wavespunks-join-the-global > h2 > img {
+            width: 100%;
         }
 
         .wavespunks-join-the-global > div {
@@ -626,6 +668,17 @@
             margin-top: 10px;
         }
 
+        .wavespunks-what-four > div {
+            width: 100% !important;
+            height: 25% !important;
+        }
+
+        .wavespunks-what-four > div:nth-child(2),
+        .wavespunks-what-four > div:nth-child(3),
+        .wavespunks-what-four > div:nth-child(4) {
+            margin-top: 10px;
+        }
+
         .wavespunks-what-is > div:nth-child(2) {
             font-size: 14px !important;
             line-height: 17px !important;
@@ -633,19 +686,21 @@
 
         .wavespunks-what-four > div:nth-child(2) > img,
         .wavespunks-what-four > div:nth-child(3) > img {
-            height: 60% !important;
+            height: 75% !important;
         }
 
         .wavespunks-what-four > div:nth-child(4) img {
-            height: 50% !important;
+            height: 75% !important;
         }
 
-        .wavespunks-five-ages h2 {
+        .wavespunks-five-ages h2,
+        .wavespunks-zombie-collection h2 {
             margin-left: 0px !important;
             text-align: center;
         }
 
-        .wavespunks-five-ages-four > div {
+        .wavespunks-five-ages-four > div,
+        .wavespunks-zombie-collection-four > div {
             padding: 0 35px !important;
         }
 
@@ -655,6 +710,7 @@
         }
 
         .wavespunks-five-ages-text > p:nth-child(2),
+        .wavespunks-zombie-collection-text > p:nth-child(2),
         .wavespunks-tokenized > div > p:nth-child(1) {
             font-size: 12px !important;
             line-height: 15px !important;
@@ -702,6 +758,10 @@
             margin-left: 5px !important;
         }
 
+        .wavespunks-links > a {
+            margin: 0 10px !important;
+        }
+
         .wavespunks-first {
             height: 700px !important;
         }
@@ -719,16 +779,23 @@
             padding: 35px !important;
         }
 
-        .wavespunks-five-ages {
+        .wavespunks-how-to-mint-video {
+            height: 190px !important;
+        }
+
+        .wavespunks-five-ages,
+        .wavespunks-zombie-collection {
             margin-top: 80px !important;
         }
 
-        .wavespunks-five-ages-four > div {
+        .wavespunks-five-ages-four > div,
+        .wavespunks-zombie-collection-four > div {
             height: 190px !important;
             overflow: hidden;
         }
 
-        .wavespunks-five-ages-four > div > img {
+        .wavespunks-five-ages-four > div > img,
+        .wavespunks-zombie-collection-four > div > img {
             right: -80px !important;
         }
 
@@ -753,8 +820,21 @@
             height: 366px !important;
         }
 
-        .wavespunks-first-collection > img, .wavespunks-second-collection > img {
+        .wavespunks-first-collection > img {
             width: 200px !important;
+        }
+
+        .wavespunks-first-collection > div:nth-child(1) {
+            margin-bottom: 67px !important;
+        }
+
+        .wavespunks-second-collection {
+            min-width: 200px !important;
+        }
+
+        .wavespunks-second-collection > img {
+            width: 175px;
+            margin-top: 50px !important;
         }
 
         .wavespunks-coming-soon {
@@ -948,6 +1028,23 @@
         align-content: space-between;
         width: calc(50% - 10px);
         margin-left: 20px;
+    }
+
+    .wavespunks-how-to-mint {
+        background: #F1F1F1;
+        box-shadow: 2px 2px 2px 0px rgb(206, 206, 206), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 60px;
+        margin-top: 170px;
+    }
+
+    .wavespunks-how-to-mint-video {
+        width: 800px;
+        height: 500px;
+        overflow: hidden;
     }
 
     .wavespunks-five-ages, .wavespunks-zombie-collection {
@@ -1240,17 +1337,24 @@
     }
 
     .wavespunks-join-the-global > h2 {
-        color: #0055FF;
         margin-bottom: 60px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .wavespunks-join-the-global > h2 > p {
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 36px;
     }
 
     .wavespunks-join-the-global > div {
         display: flex;
         flex-direction: row;
-    }
-
-    .wavespunks-join-the-global > div > div:nth-child(2) {
-        margin-left: 120px;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 
     .wavespunks-join-the-global > div > div > p {
