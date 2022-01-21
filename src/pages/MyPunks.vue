@@ -6,18 +6,17 @@
                     <a href="/">
                         <img src="/img/logo.svg">
                     </a>
-                    <p>CRYPTO CHRONICLES</p>
                 </div>
                 <div class="wavespunks-links">
                     <a href="/myPunks">MY PUNKS</a>
+                    <a id="reddit" target="_blank" href="https://www.reddit.com/r/WavesPunks/">
+                        <img src="/img/reddit.svg">
+                    </a>
                     <a id="discord" target="_blank" href="https://discord.gg/QqBptKxSzS">
                         <img src="/img/discord.svg">
                     </a>
                     <a id="telegram" target="_blank" href="https://t.me/wavespunks">
                         <img src="/img/telegram.svg">
-                    </a>
-                    <a id="instagram" target="_blank" href="https://instagram.com/waves.punks">
-                        <img src="/img/instagram.svg">
                     </a>
                 </div>
             </div>
@@ -204,6 +203,8 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
+        margin-left: 40px;
+        margin-right: 40px;
     }
 
     .wavespunks-logo {
@@ -252,25 +253,39 @@
         font-weight: 300;
     }
 
+    .ref {
+        background: url('/img/additional-assets-card-back.svg'), #000000;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 2px 2px 2px 0px rgba(1, 1, 1, 0.6), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+    }
+
+    .log-out {
+        background: url('/img/giveaway-card-back.svg'), radial-gradient(76.88% 160.97% at 83% 151.3%, #7000FF 0%, rgba(0, 0, 0, 1) 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 2px 2px 2px 0px rgba(66, 0, 155, 0.6), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+    }
+
     .ref, .log-out {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: #F1F1F1;
         border-radius: 18px;
-        box-shadow: 2px 2px 2px 0px rgb(206, 206, 206), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
         margin: 40px;
         padding: 20px;
         text-align: center;
         width: 530px;
+        color: white;
     }
 
     .ref > a, .ref > a:hover, .ref > a:active {
-        color: black;
+        color: white;
     }
 
     .log-out > button {
+        background: #7000FF !important;
         margin-top: 10px;
     }
 
