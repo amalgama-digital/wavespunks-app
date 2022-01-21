@@ -26,10 +26,10 @@
                         <!-- <div class="wavespunks-get-one">
                             <button @click="market">MARKETPLACE</button>
                         </div> -->
-                        <div class="wavespunks-get-one" v-if="punks_supply <= 999">
+                        <!-- <div class="wavespunks-get-one" v-if="punks_supply <= 999">
                             GET&nbsp;ONE&nbsp;NOW
                             <button @click="login">Mint&nbsp;a&nbsp;Waves&nbsp;Punk</button>
-                        </div>
+                        </div> -->
                     </div>
                     <img src="/img/first-zombie.svg">
                 </div>
@@ -77,7 +77,7 @@
                 <div>
                     <h2>HOW TO MINT</h2>
                     <div>IT’S THAT EASY</div>
-                    <button @click="login" v-if="punks_supply <= 999">Mint a Waves Punk</button>
+                    <!-- <button @click="login" v-if="punks_supply <= 999">Mint a Waves Punk</button> -->
                 </div>
                 <div class="wavespunks-how-to-mint-video border-radius-18">
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xGzMK_nKemM?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -218,7 +218,7 @@
                 </div>
                 <div>
                     <p>DON’T&nbsp;MISS<br>THE&nbsp;TOKENIZED&nbsp;FUTURE</p>
-                    <button @click="login" v-if="punks_supply <= 999">Mint a Waves Punk</button>
+                    <!-- <button @click="login" v-if="punks_supply <= 999">Mint a Waves Punk</button> -->
                     <div class="wavespunks-links">
                         <a id="discord" target="_blank" href="https://discord.gg/gfpKDfRtvf">
                             <img src="/img/discord-footer.svg">
@@ -1130,19 +1130,21 @@
 
     .wavespunks-explore-new-world {
         background: #FFAB17;
+        box-shadow: 2px 2px 2px 0px rgb(206, 206, 206), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
     }
 
     .wavespunks-additional-assets {
         background: url('/img/additional-assets-card-back.svg'), #000000;
         background-repeat: no-repeat;
         background-size: cover;
+        box-shadow: 2px 2px 2px 0px rgba(1, 1, 1, 0.6), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
     }
 
     .wavespunks-giveaway {
-        /* background: #000000; */
         background: url('/img/giveaway-card-back.svg'), radial-gradient(76.88% 160.97% at 83% 151.3%, #7000FF 0%, rgba(0, 0, 0, 1) 100%);
         background-repeat: no-repeat;
         background-size: cover;
+        box-shadow: 2px 2px 2px 0px rgba(66, 0, 155, 0.6), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
     }
 
     .wavespunks-five-ages-text > p:nth-child(2),
