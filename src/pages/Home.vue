@@ -58,7 +58,9 @@
                 </div>
                 <div class="wavespunks-what-four">
                     <div class="border-radius-18" style="background: #7000FF;">
-                        <img src="/img/two-collections.svg">
+                        <a href="https://wavesmarketplace.com/">
+                            <img src="/img/waves-marketplace.svg">
+                        </a>
                     </div>
                     <div class="border-radius-18" style="background: #0A0A0B;">
                         <img src="/img/first-of-it-s-kind-zombie.svg">
@@ -345,6 +347,12 @@
 </script>
 
 <style scoped>
+    @media only screen and (min-width: 1441px) {
+        .wavespunks-what-four > div:nth-child(1) > a > img {
+            height: 80%;
+        }
+    }
+
     @media only screen and (max-width: 1440px) {
         h2 {
             font-size: 42px !important;
@@ -354,8 +362,8 @@
             font-size: 30px !important;
         }
 
-        .wavespunks-what-four > div:nth-child(1) > img {
-            width: 80%;
+        .wavespunks-what-four > div:nth-child(1) > a > img {
+            height: 80%;
         }
 
         .wavespunks-what-four > div:nth-child(2) > img {
@@ -1028,6 +1036,15 @@
         align-content: space-between;
         width: calc(50% - 10px);
         margin-left: 20px;
+    }
+
+    .wavespunks-what-four > div:nth-child(1) > a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
 
     .wavespunks-how-to-mint {
