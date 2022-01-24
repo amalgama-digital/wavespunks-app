@@ -39,7 +39,7 @@
                 <h2>WATCH OUT!</h2>
                 <p>THE PRICE WILL INCREASE<br>for every next 200 WAVES PUNKS ZOMBIE</p>
                 WavesPunks left: {{ 1000 - punks_supply }}<br>
-                Current price: {{ (parseInt(punks_supply / 100) + 1) }} WAVES<br><br>
+                Current price: {{ (parseInt(punks_supply / 200) + 1) * 3 }} WAVES<br><br>
                 <div>
                     <div :style="fire">
                         <img src="/img/fire-timeline.svg">
@@ -290,7 +290,7 @@
         },
         computed: {
             fire() {
-                return "width: calc(" + (this.punks_supply / 10) + "% - 28px)";
+                return "width: calc(" + (this.punks_supply / 10) + "% - 25px)";
             }
         },
         methods: {
@@ -323,7 +323,7 @@
                     fee: 900000,
                     payment: [{
                         assetId: 'WAVES',
-                        amount: (parseInt(this.punks_supply / 100) + 1) * 100000000,
+                        amount: (parseInt(this.punks_supply / 200) + 1) * 300000000,
                     }],
                     call: {
                         function: 'mint',
