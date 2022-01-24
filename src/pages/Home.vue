@@ -116,6 +116,7 @@
                         <div class="wavespunks-zombie-collection-text" style="color: white;">
                             <h3>WAVES PUNKS<br>GIVEAWAY</h3>
                             <p>Get your chance<br>to win free waves punk<br>or something else!</p>
+                            <button @click="giveaway">Read more</button>
                         </div>
                     </div>
                 </div>
@@ -305,8 +306,27 @@
             market() {
                 window.location.href = "https://wavesmarketplace.com/";
             },
+            giveaway() {
+                window.location.href = "/zombie-airdrop.pdf";
+            },
             async mint() {
                 const data = JSON.parse(window.localStorage.getItem("loginChoice"));
+
+                dataLayer.push({ ecommerce: null });
+                dataLayer.push({
+                    event: 'add_to_cart',
+                    ecommerce: {
+                        items: [{
+                            item_name: 'Punk',
+                            item_id: '0',
+                            price: 1.0,
+                            item_brand: 'WavesPunks',
+                            index: 1,
+                            quantity: 1
+                        }]
+                    }
+                });
+
                 if (data.choice == "keeper") {
                     const authData = { data: 'https://wavespunks.com/' };
                     await window.signer.setProvider(new ProviderKeeper(authData)).then(res => {
@@ -316,6 +336,24 @@
                     });
                 } else if (data.choice == "email") {
                     window.signer.setProvider(new ProviderCloud());
+                }
+
+                dataLayer.push({
+                    event: 'begin_checkout',
+                    ecommerce: {
+                        items: [{
+                            item_name: 'Punk',
+                            item_id: '0',
+                            price: 1.0,
+                            item_brand: 'WavesPunks',
+                            index: 1,
+                            quantity: 1
+                        }]
+                    }
+                });
+
+                if (window.ym) {
+                    window.ym(86048370, 'reachGoal', 'mint');
                 }
 
                 await window.signer.invoke({
@@ -337,6 +375,28 @@
                     this.notify = true;
                     this.notify_error = false;
                     this.notify_text = "Your transaction has been broadcast to network!";
+
+                    dataLayer.push({ ecommerce: null });
+                    dataLayer.push({
+                        event: 'purchase',
+                        ecommerce: {
+                            transaction_id: 'T12345',
+                            affiliation: this.inviteKey,
+                            value: '1.0',
+                            currency: 'EUR',
+                            items: [{
+                                item_name: 'Punk',
+                                item_id: '0',
+                                price: '1.0',
+                                item_brand: 'WavesPunks',
+                                quantity: 1
+                            }]
+                        }
+                    });
+
+                    if (window.ym) {
+                        window.ym(86048370, 'reachGoal', 'purchase');
+                    }
                 }).catch(error => {
                     console.error(error);
                     this.notify = true;
@@ -1165,6 +1225,12 @@
         background-repeat: no-repeat;
         background-size: cover;
         box-shadow: 2px 2px 2px 0px rgba(66, 0, 155, 0.6), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+    }
+
+    .wavespunks-giveaway > div > button {
+        background: #7000FF !important;
+        box-shadow: 2px 2px 2px 0px rgba(6, 59, 166, 0.6), -2px -2px 2px 0px rgba(112, 0, 255, 0.5);
+        margin-top: 10px;
     }
 
     .wavespunks-five-ages-text > p:nth-child(2),
