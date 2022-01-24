@@ -66,7 +66,9 @@
                         <img src="/img/first-of-it-s-kind-zombie.svg">
                     </div>
                     <div class="border-radius-18" style="background: #FFFFFF;">
-                        <img src="/img/waves-association.svg">
+                        <a href="https://wavesassociation.org/">
+                            <img src="/img/waves-association.svg">
+                        </a>
                     </div>
                     <div class="border-radius-18" style="background: #000000;">
                         <div style="background: radial-gradient(99.15% 148.72% at 93.42% 110.15%, #7000FF 0.22%, rgba(0, 85, 255, 0) 100%); width: 100%; height: 100%; border-radius: 18px;">
@@ -370,7 +372,7 @@
             width: 85%;
         }
 
-        .wavespunks-what-four > div:nth-child(3) > img {
+        .wavespunks-what-four > div:nth-child(3) > a > img {
             width: 85%;
         }
 
@@ -467,7 +469,7 @@
             height: 85%;
         }
 
-        .wavespunks-what-four > div:nth-child(3) > img {
+        .wavespunks-what-four > div:nth-child(3) > a > img {
             height: 85%;
         }
 
@@ -693,7 +695,7 @@
         }
 
         .wavespunks-what-four > div:nth-child(2) > img,
-        .wavespunks-what-four > div:nth-child(3) > img {
+        .wavespunks-what-four > div:nth-child(3) > a > img {
             height: 75% !important;
         }
 
@@ -1038,7 +1040,8 @@
         margin-left: 20px;
     }
 
-    .wavespunks-what-four > div:nth-child(1) > a {
+    .wavespunks-what-four > div:nth-child(1) > a,
+    .wavespunks-what-four > div:nth-child(3) > a {
         width: 100%;
         height: 100%;
         display: flex;
