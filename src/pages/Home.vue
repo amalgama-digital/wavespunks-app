@@ -26,10 +26,10 @@
                         <!-- <div class="wavespunks-get-one">
                             <button @click="market">MARKETPLACE</button>
                         </div> -->
-                        <!-- <div class="wavespunks-get-one" v-if="punks_supply <= 999">
+                        <div class="wavespunks-get-one" v-if="punks_supply <= 999">
                             GET&nbsp;ONE&nbsp;NOW
                             <button @click="login">Mint&nbsp;a&nbsp;Waves&nbsp;Punk</button>
-                        </div> -->
+                        </div>
                     </div>
                     <img src="/img/first-zombie.svg">
                 </div>
@@ -81,7 +81,7 @@
                 <div>
                     <h2>HOW TO MINT</h2>
                     <div>IT’S THAT EASY</div>
-                    <!-- <button @click="login" v-if="punks_supply <= 999">Mint a Waves Punk</button> -->
+                    <button @click="login" v-if="punks_supply <= 999">Mint a Waves Punk</button>
                 </div>
                 <div class="wavespunks-how-to-mint-video border-radius-18">
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xGzMK_nKemM?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -223,7 +223,7 @@
                 </div>
                 <div>
                     <p>DON’T&nbsp;MISS<br>THE&nbsp;TOKENIZED&nbsp;FUTURE</p>
-                    <!-- <button @click="login" v-if="punks_supply <= 999">Mint a Waves Punk</button> -->
+                    <button @click="login" v-if="punks_supply <= 999">Mint a Waves Punk</button>
                     <div class="wavespunks-links">
                         <a id="discord" target="_blank" href="https://discord.gg/gfpKDfRtvf">
                             <img src="/img/discord-footer.svg">
@@ -280,7 +280,7 @@
                 this.inviteKey = inviteKey;
             }
 
-            await axios.get(`${window.nodeURL}/addresses/data/${window.contractAddress}?key=punks_supply`)
+            await axios.get(`${window.nodeURL}/addresses/data/${window.zombieAddress}?key=punks_supply`)
                 .then(res => {
                     if (res.data[0].key == "punks_supply" && res.data[0].type == "integer")
                         this.punks_supply = res.data[0].value;
@@ -357,7 +357,7 @@
                 }
 
                 await window.signer.invoke({
-                    dApp: window.contractAddress,
+                    dApp: window.zombieAddress,
                     fee: 900000,
                     payment: [{
                         assetId: 'WAVES',
@@ -480,6 +480,10 @@
 
         .wavespunks-how-to-mint {
             flex-direction: column !important;
+        }
+
+        .wavespunks-how-to-mint > div:nth-child(1) {
+            text-align: center;
         }
 
         .wavespunks-how-to-mint-video {
@@ -1119,6 +1123,10 @@
         align-items: center;
         padding: 20px 60px;
         margin-top: 170px;
+    }
+
+    .wavespunks-how-to-mint > div:nth-child(1) > button {
+        margin-top: 20px;
     }
 
     .wavespunks-how-to-mint-video {

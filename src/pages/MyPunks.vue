@@ -37,10 +37,10 @@
         </div>
         <div class="my-punks" v-if="punks.length > 0">
             <a :href="`https://wavesmarketplace.com/asset/${punk.assetId}`" class="punk" v-for="(punk) in punks" v-bind:key="punk.id">
-                <img :src="`/punks/p${ punk.id }.png`">
+                <img :src="punk.url">
                 <div>
                     <div class="punk-name">
-                        <p>WavesPunk #{{ punk.id }}</p>
+                        <p>{{ punk.name }}</p>
                     </div>
                     <div class="punk-id">
                         <p>id: {{ punk.id }}</p>
@@ -90,22 +90,44 @@
                 this.walletStatus = true;
                 this.wallet.address = address;
                 this.link = `https://wavespunks.com/i/${address}`;
-                await axios.get(`${window.nodeURL}/assets/nft/${address}/limit/1000`)
-                    .then(res => {
-                        for(let i = 0; i < res.data.length; i++) {
-                            if (res.data[i].issuer == window.contractAddress) {
-                                let data = JSON.parse(res.data[i].description);
-                                data.assetId = res.data[i].assetId;
-                                if (data.id <= 40) {
-                                    data.description = window.rare[data.id];
+
+                let nftCount = 1000;
+                let after = '';
+
+                while (nftCount === 1000) {
+                    await axios.get(`${window.nodeURL}/assets/nft/${address}/limit/1000${after == '' ? '' : after}`)
+                        .then(res => {
+                            for(let i = 0; i < res.data.length; i++) {
+                                try {
+                                    if (res.data[i].issuer == window.contractAddress) {
+                                        let data = JSON.parse(res.data[i].description);
+                                        data.name = res.data[i].name;
+                                        data.assetId = res.data[i].assetId;
+                                        if (data.id <= 40) {
+                                            data.description = window.rare[data.id];
+                                        }
+                                        this.punks.push(data);
+                                    } else if (res.data[i].issuer == window.zombieAddress) {
+                                        let data = JSON.parse(res.data[i].description);
+                                        data.name = res.data[i].name;
+                                        data.assetId = res.data[i].assetId;
+                                        // if (data.id <= 40) {
+                                        //     data.description = window.rare[data.id];
+                                        // }
+                                        this.punks.push(data);
+                                    }
+                                } catch (err) {
+                                    console.error(err);
                                 }
-                                this.punks.push(data);
                             }
-                        }
-                    })
-                    .catch(err => {
-                        console.error(err);
-                    });
+
+                            nftCount = res.data.length;
+                            after = '?after=' + res.data[res.data.length - 1].assetId ;
+                        })
+                        .catch(err => {
+                            console.error(err);
+                        });
+                }
             },
             logout () {
                 window.localStorage.removeItem("loginChoice");
