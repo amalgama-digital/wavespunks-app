@@ -374,7 +374,7 @@
                     },
                 }).broadcast().then(res => {
                     console.log(res);
-                    // this.notify = true;
+                    this.notify = true;
                     this.notify_error = false;
                     this.notify_text = "Your transaction has been broadcast to network!";
 
