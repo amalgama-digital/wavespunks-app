@@ -72,7 +72,9 @@
                     </div>
                     <div class="border-radius-18" style="background: #000000;">
                         <div style="background: radial-gradient(99.15% 148.72% at 93.42% 110.15%, #7000FF 0.22%, rgba(0, 85, 255, 0) 100%); width: 100%; height: 100%; border-radius: 18px;">
-                            <img src="/img/psc.svg">
+                            <a href="">
+                                <img src="/img/psc.svg">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -436,7 +438,7 @@
             width: 85%;
         }
 
-        .wavespunks-what-four > div:nth-child(4) img {
+        .wavespunks-what-four > div:nth-child(4) > a > img {
             width: 75%;
         }
 
@@ -537,7 +539,7 @@
             height: 85%;
         }
 
-        .wavespunks-what-four > div:nth-child(4) img {
+        .wavespunks-what-four > div:nth-child(4) > a > img {
             height: 75%;
         }
 
@@ -763,7 +765,7 @@
             height: 75% !important;
         }
 
-        .wavespunks-what-four > div:nth-child(4) img {
+        .wavespunks-what-four > div:nth-child(4) > a > img {
             height: 75% !important;
         }
 
