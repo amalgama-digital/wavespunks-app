@@ -8,13 +8,15 @@ import Index from './Index';
 
 import { Signer } from '@waves/signer';
 
-import rare from './rare'
+import rare from './rare';
+import zombie from './zombie'
 
 Vue.router = router;
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
 
 window.rare = rare;
+window.zombie = zombie;
 
 // window.nodeURL = 'https://nodes.wavesnodes.com';
 window.nodeURL = 'https://nodes-testnet.wavesnodes.com';

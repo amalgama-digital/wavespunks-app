@@ -111,9 +111,9 @@
                                         let data = JSON.parse(res.data[i].description);
                                         data.name = res.data[i].name;
                                         data.assetId = res.data[i].assetId;
-                                        // if (data.id <= 40) {
-                                        //     data.description = window.rare[data.id];
-                                        // }
+                                        if (data.id <= 41) {
+                                            data.description = window.zombie[data.id];
+                                        }
                                         this.punks.push(data);
                                     }
                                 } catch (err) {
