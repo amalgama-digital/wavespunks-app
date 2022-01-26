@@ -35,6 +35,13 @@
                 <button @click="logout">Log out</button>
             </div>
         </div>
+        <div class="collection-sort">
+            <input @keyup="searchByInputId" v-model="searchById" placeholder="Search by ID">
+            <select @change="onChange($event)">
+                <option value="id-low-to-high">Lowest NFT ID</option>
+                <option value="id-high-to-low">Highest NFT ID</option>
+            </select>
+        </div>
         <div class="my-punks" v-if="punks.length > 0">
             <a :href="`https://wavesmarketplace.com/asset/${punk.assetId}`" class="punk" v-for="(punk) in punks" v-bind:key="punk.id">
                 <img :src="punk.url">
@@ -70,7 +77,9 @@
                 wallet: {},
                 walletStatus: false,
                 link: "",
-                punks: []
+                searchById: "",
+                punks: [],
+                allPunks: []
             }
         },
         components: {
@@ -103,18 +112,22 @@
                                         let data = JSON.parse(res.data[i].description);
                                         data.name = res.data[i].name;
                                         data.assetId = res.data[i].assetId;
+
                                         if (data.id <= 40) {
                                             data.description = window.rare[data.id];
                                         }
-                                        this.punks.push(data);
+
+                                        this.allPunks.push(data);
                                     } else if (res.data[i].issuer == window.zombieAddress) {
                                         let data = JSON.parse(res.data[i].description);
                                         data.name = res.data[i].name;
                                         data.assetId = res.data[i].assetId;
+
                                         if (data.id <= 41) {
                                             data.description = window.zombie[data.id];
                                         }
-                                        this.punks.push(data);
+
+                                        this.allPunks.push(data);
                                     }
                                 } catch (err) {
                                     console.error(err);
@@ -128,11 +141,39 @@
                             console.error(err);
                         });
                 }
+
+                this.punks = this.allPunks;
             },
             logout () {
                 window.localStorage.removeItem("loginChoice");
                 location.reload();
-            }
+            },
+            onChange(event) {
+                let v = event.target.value;
+                if (v == "id-low-to-high") {
+                    this.sortLowestId();
+                } else if (v == "id-high-to-low") {
+                    this.sortHighestId();
+                }
+            },
+            sortLowestId() {
+                this.punks = this.punks.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
+            },
+            sortHighestId() {
+                this.punks = this.punks.sort((a,b) => (a.id < b.id) ? 1 : ((b.id < a.id) ? -1 : 0));
+            },
+            searchByInputId() {
+                this.punks = [];
+                if (this.searchById.trim()) {
+                    for (let i = 0; i < this.allPunks.length; i++) {
+                        if (this.searchById.trim() > -1 && this.searchById.trim() == this.allPunks[i].id) {
+                            this.punks.push(this.allPunks[i]);
+                        }
+                    }
+                } else {
+                    this.punks = this.allPunks;
+                }
+            },
         }
     }
 </script>
@@ -382,5 +423,33 @@
 
     .no-my-punks > p:nth-child(2) {
         text-align: center;
+    }
+
+    .collection-sort {
+        margin: 40px;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .collection-sort > input {
+        margin-right: 10px;
+    }
+
+    .collection-sort > select, .collection-sort > input {
+        padding: 10px;
+        border-radius: 18px;
+        border: 2px solid white;
+        background: #F0F0F0;
+        box-shadow: 2px 2px 2px 0px rgb(206, 206, 206), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+    }
+
+    .collection-sort > select:hover, .collection-sort > select:active,
+    .collection-sort > input:hover, .collection-sort > input:active {
+        border: 2px solid white;
+    }
+
+    .collection-sort > select:focus-visible,
+    .collection-sort > input:focus-visible {
+        outline: none;
     }
 </style>
