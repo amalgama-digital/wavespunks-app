@@ -72,7 +72,7 @@
                     </div>
                     <div class="border-radius-18" style="background: #000000;">
                         <div style="background: radial-gradient(99.15% 148.72% at 93.42% 110.15%, #7000FF 0.22%, rgba(0, 85, 255, 0) 100%); width: 100%; height: 100%; border-radius: 18px;">
-                            <a href="">
+                            <a href="https://picsell.art/">
                                 <img src="/img/psc.svg">
                             </a>
                         </div>
