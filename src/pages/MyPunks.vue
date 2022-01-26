@@ -143,6 +143,7 @@
                 }
 
                 this.punks = this.allPunks;
+                this.sortLowestId();
             },
             logout () {
                 window.localStorage.removeItem("loginChoice");
