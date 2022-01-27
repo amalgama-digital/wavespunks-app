@@ -1,23 +1,7 @@
 <template>
     <div>
         <div class="wavespunks-home">
-            <div class="wavespunks-header">
-                <div class="wavespunks-logo">
-                    <img src="/img/logo.svg">
-                </div>
-                <div class="wavespunks-links">
-                    <a href="/myPunks">MY PUNKS</a>
-                    <a id="reddit" target="_blank" href="https://www.reddit.com/r/WavesPunks/">
-                        <img src="/img/reddit.svg">
-                    </a>
-                    <a id="discord" target="_blank" href="https://discord.gg/gfpKDfRtvf">
-                        <img src="/img/discord.svg">
-                    </a>
-                    <a id="telegram" target="_blank" href="https://t.me/wavespunks_en">
-                        <img src="/img/telegram.svg">
-                    </a>
-                </div>
-            </div>
+            <header-component></header-component>
             <div class="wavespunks-first border-radius-18">
                 <div class="wavespunks-first-back border-radius-18">
                     <div class="wavespunks-first-text">
@@ -170,33 +154,7 @@
                     <img src="/img/future-head.svg">
                 </div>
             </div>
-            <div class="wavespunks-upcoming">
-                <h2>UPCOMING&nbsp;NFT<br>COLLECTIONS</h2>
-                <div class="wavespunks-upcoming-four">
-                    <div class="wavespunks-first-collection border-radius-18">
-                        <div>
-                            <p>NFT COLLECTION</p>
-                            <p>CRYPTO<br>CHRONICLES</p>
-                        </div>
-                        <img src="/img/first-punk-card.svg">
-                    </div>
-                    <div class="wavespunks-second-collection border-radius-18">
-                        <div style="display: flex; flex-direction: row;">
-                            <img src="/img/fire.svg">
-                            <p>current<br>collection</p>
-                        </div>
-                        <img src="/img/second-punk-card.svg">
-                    </div>
-                    <div class="wavespunks-coming-soon border-radius-18">
-                        <p>?</p>
-                        <p>coming<br>soon</p>
-                    </div>
-                    <div class="wavespunks-coming-soon border-radius-18">
-                        <p>?</p>
-                        <p>coming<br>soon</p>
-                    </div>
-                </div>
-            </div>
+            <upcoming></upcoming>
             <div class="wavespunks-join-the-global">
                 <h2>
                     <img src="/img/waves-mp-footer.svg">
@@ -250,6 +208,10 @@
 
 <script>
     import axios from "axios";
+
+    import HeaderComponent from "../components/Header.vue";
+    import Upcoming from "../components/Upcoming.vue";
+
     import ConnectWallet from "../components/ConnectWallet.vue";
     import Notifications from "../components/Notifications.vue";
 
@@ -269,6 +231,8 @@
             }
         },
         components: {
+            HeaderComponent,
+            Upcoming,
             ConnectWallet,
             Notifications
         },
@@ -282,14 +246,11 @@
                 this.inviteKey = inviteKey;
             }
 
-            await axios.get(`${window.nodeURL}/addresses/data/${window.zombieAddress}?key=punks_supply`)
-                .then(res => {
-                    if (res.data[0].key == "punks_supply" && res.data[0].type == "integer")
-                        this.punks_supply = res.data[0].value;
-                })
-                .catch(err => {
-                    console.error(err);
-                });
+            await this.getSupply();
+
+            setInterval(() => {
+                this.getSupply();
+            }, 50000);
         },
         computed: {
             fire() {
@@ -310,6 +271,16 @@
             },
             giveaway() {
                 window.location.href = "/zombie-airdrop.pdf";
+            },
+            async getSupply() {
+                await axios.get(`${window.nodeURL}/addresses/data/${window.zombieAddress}?key=punks_supply`)
+                    .then(res => {
+                        if (res.data[0].key == "punks_supply" && res.data[0].type == "integer")
+                            this.punks_supply = res.data[0].value;
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    });
             },
             async mint() {
                 const data = JSON.parse(window.localStorage.getItem("loginChoice"));
@@ -405,6 +376,8 @@
                     this.notify_error = true;
                     this.notify_text = error.message;
                 });
+
+                await this.getSupply();
             }
         }
     }
@@ -438,7 +411,7 @@
             width: 85%;
         }
 
-        .wavespunks-what-four > div:nth-child(4) > a > img {
+        .wavespunks-what-four > div:nth-child(4) img {
             width: 75%;
         }
 
@@ -455,23 +428,6 @@
 
         .wavespunks-tokenized > img {
             width: 200px;
-        }
-
-        .wavespunks-upcoming-four {
-            overflow-x: scroll;
-            overflow-y: hidden;
-            -ms-overflow-style: none; /* for Internet Explorer, Edge */
-            scrollbar-width: none; 
-        }
-
-        .wavespunks-upcoming-four::-webkit-scrollbar {
-            display: none; /* for Chrome, Safari, and Opera */
-        }
-
-        .wavespunks-coming-soon,
-        .wavespunks-second-collection {
-            min-width: 330px;
-            margin-left: 20px;
         }
     }
 
@@ -539,7 +495,7 @@
             height: 85%;
         }
 
-        .wavespunks-what-four > div:nth-child(4) > a > img {
+        .wavespunks-what-four > div:nth-child(4) img {
             height: 75%;
         }
 
@@ -564,15 +520,6 @@
             left: 125px !important;
         }
 
-        .wavespunks-first-collection > div:nth-child(1) {
-            margin-bottom: 93px !important;
-        }
-
-        .wavespunks-first-collection > div:nth-child(1) > p:nth-child(2) {
-            font-size: 22px !important;
-            line-height: 26px !important;
-        }
-
         .wavespunks-footer-wrapper {
             padding: 75px 100px 50px 100px !important;
         }
@@ -593,22 +540,7 @@
         }
     }
 
-    @media only screen and (min-width: 769px) {
-        .wavespunks-logo > p {
-            margin-top: 80px;
-        }
-    }
-
     @media only screen and (max-width: 768px) {
-        .wavespunks-header {
-            align-items: baseline !important;
-        }
-
-        .wavespunks-logo {
-            display: flex;
-            flex-direction: column;
-        }
-
         .wavespunks-first {
             height: 800px !important;
         }
@@ -661,30 +593,7 @@
         }
     }
 
-    @media only screen and (min-width: 768px) {
-        .wavespunks-logo {
-            display: flex;
-        }
-    }
-
     @media only screen and (max-width: 767px) {
-        .wavespunks-logo {
-            margin-left: 60px;
-        }
-
-        .wavespunks-logo > p {
-            margin-left: 20px;
-        }
-
-        .wavespunks-header {
-            flex-direction: column;
-            align-items: center !important;
-        }
-
-        .wavespunks-header > .wavespunks-links {
-            margin-top: 20px;
-        }
-
         .wavespunks-first-text {
             align-items: center;
         }
@@ -765,7 +674,7 @@
             height: 75% !important;
         }
 
-        .wavespunks-what-four > div:nth-child(4) > a > img {
+        .wavespunks-what-four > div:nth-child(4) img {
             height: 75% !important;
         }
 
@@ -822,18 +731,6 @@
     }
 
     @media only screen and (max-width: 580px) {
-        .wavespunks-logo {
-            margin-left: 50px !important;
-        }
-
-        .wavespunks-logo > img {
-            width: 200px !important;
-        }
-
-        .wavespunks-logo > p {
-            margin-left: 5px !important;
-        }
-
         .wavespunks-links > a {
             margin: 0 10px !important;
         }
@@ -883,39 +780,6 @@
         .wavespunks-tokenized > img {
             width: 120px;
         }
-
-        .wavespunks-upcoming {
-            margin-top: 78px !important;
-        }
-
-        .wavespunks-upcoming h2 {
-            margin-left: 0px !important;
-        }
-
-        .wavespunks-upcoming-four > div{
-            height: 366px !important;
-        }
-
-        .wavespunks-first-collection > img {
-            width: 200px !important;
-        }
-
-        .wavespunks-first-collection > div:nth-child(1) {
-            margin-bottom: 67px !important;
-        }
-
-        .wavespunks-second-collection {
-            min-width: 200px !important;
-        }
-
-        .wavespunks-second-collection > img {
-            width: 175px;
-            margin-top: 50px !important;
-        }
-
-        .wavespunks-coming-soon {
-            min-width: 200px !important;
-        }
     }
 
     @media only screen and (max-width: 400px) {
@@ -962,20 +826,6 @@
         margin: 40px;
         font-family: Inter;
         font-style: normal;
-    }
-
-    .wavespunks-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;    
-        margin-left: 40px;
-        margin-right: 40px;
-    }
-
-    .wavespunks-logo {
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 17px;
     }
 
     .wavespunks-links {
@@ -1107,7 +957,8 @@
     }
 
     .wavespunks-what-four > div:nth-child(1) > a,
-    .wavespunks-what-four > div:nth-child(3) > a {
+    .wavespunks-what-four > div:nth-child(3) > a,
+    .wavespunks-what-four > div:nth-child(4) > div > a {
         width: 100%;
         height: 100%;
         display: flex;
@@ -1303,130 +1154,6 @@
     .wavespunks-tokenized > div > p:nth-child(2) > b {
         font-weight: 500;
         color: #FF00CF;
-    }
-
-    .wavespunks-upcoming {
-        margin-top: 178px;
-    }
-
-    .wavespunks-upcoming h2 {
-        margin-left: 60px;
-        margin-bottom: 50px;
-    }
-
-    .wavespunks-upcoming-four {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 5px 0;
-    }
-
-    .wavespunks-upcoming-four > div {
-        width: 330px;
-        height: 503px;
-        box-shadow: 2px 2px 2px 0px rgb(206, 206, 206), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
-    }
-
-    /* Upcoming | First collection */
-
-    .wavespunks-first-collection {
-        background: #FFD645;
-    }
-
-    .wavespunks-first-collection > div {
-        margin-left: 24px;
-    }
-
-    .wavespunks-first-collection > div:nth-child(1) {
-        margin-top: 20px;
-        margin-bottom: 50px;
-    }
-
-    .wavespunks-first-collection > div:nth-child(1) > p:first-child {
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 17px;
-        color: #FF00CF;
-        margin: 0;
-    }
-
-    .wavespunks-first-collection > div:nth-child(1) > p:nth-child(2) {
-        font-weight: 500;
-        font-size: 30px;
-        line-height: 36px;
-        margin: 0;
-    }
-
-    /* Upcoming | Second collection */
-
-    .wavespunks-second-collection {
-        background: url('/img/second-card-back.svg'), radial-gradient(134.56% 88.81% at 92.56% 133.41%, #7000FF 0%, rgba(0, 0, 0, 1) 100%);
-        background-repeat: no-repeat;
-    }
-
-    .wavespunks-second-collection > div {
-        margin-left: 24px;
-    }
-
-    .wavespunks-second-collection > div:first-child {
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 15px;
-        color: #FF00CF;
-        margin-bottom: -8px;
-        margin-top: 15px;
-    }
-
-    .wavespunks-second-collection > div:first-child > p {
-        margin-left: 7px;
-    }
-
-    .wavespunks-second-collection > div:nth-child(2) > p:first-child {
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 17px;
-        color: #FF00CF;
-        margin: 0;
-    }
-
-    .wavespunks-second-collection > div:nth-child(2) > p:nth-child(2) {
-        font-weight: 500;
-        font-size: 52px;
-        line-height: 63px;
-        margin: 0;
-    }
-
-    .wavespunks-second-collection > img {
-        margin-left: 12.5px;
-        margin-right: 12.5px;
-    }
-
-    /* Upcoming | Coming Soon */
-
-    .wavespunks-coming-soon {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background: radial-gradient(177.6% 177.6% at 21.52% 118.9%, #0055FF 0%, #000000 100%);
-    }
-
-    .wavespunks-coming-soon > p:first-child {
-        font-weight: 300;
-        font-size: 200px;
-        line-height: 242px;
-        text-align: center;
-        margin: 0px;
-        color: #0055FF;
-    }
-
-    .wavespunks-coming-soon > p:nth-child(2) {
-        font-weight: 600;
-        font-size: 35px;
-        line-height: 42px;
-        text-align: center;
-        color: #0055FF;
-        margin-top: 0px;
     }
 
     .wavespunks-join-the-global {

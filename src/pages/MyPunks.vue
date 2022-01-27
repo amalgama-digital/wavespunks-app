@@ -1,25 +1,7 @@
 <template>
     <div>
         <div class="wavespunks-home">
-            <div class="wavespunks-header">
-                <div class="wavespunks-logo">
-                    <a href="/">
-                        <img src="/img/logo.svg">
-                    </a>
-                </div>
-                <div class="wavespunks-links">
-                    <a href="/myPunks">MY PUNKS</a>
-                    <a id="reddit" target="_blank" href="https://www.reddit.com/r/WavesPunks/">
-                        <img src="/img/reddit.svg">
-                    </a>
-                    <a id="discord" target="_blank" href="https://discord.gg/QqBptKxSzS">
-                        <img src="/img/discord.svg">
-                    </a>
-                    <a id="telegram" target="_blank" href="https://t.me/wavespunks">
-                        <img src="/img/telegram.svg">
-                    </a>
-                </div>
-            </div>
+            <header-component></header-component>
         </div>
         <div class="wallet" v-if="!walletStatus">
             <h2>Connect your Waves wallet</h2>
@@ -67,6 +49,7 @@
 
 <script>
     import axios from "axios";
+    import HeaderComponent from "../components/Header.vue";
     import ConnectWallet from "../components/ConnectWallet.vue";
 
     export default {
@@ -83,6 +66,7 @@
             }
         },
         components: {
+            HeaderComponent,
             ConnectWallet
         },
         async mounted() {
@@ -180,64 +164,6 @@
 </script>
 
 <style scoped>
-    @media only screen and (min-width: 769px) {
-        .wavespunks-logo > p {
-            margin-top: 80px;
-        }
-    }
-
-    @media only screen and (max-width: 768px) {
-        .wavespunks-header {
-            align-items: baseline !important;
-        }
-
-        .wavespunks-logo {
-            display: flex;
-            flex-direction: column;
-        }
-    }
-
-    @media only screen and (min-width: 768px) {
-        .wavespunks-logo {
-            display: flex;
-        }
-    }
-
-    @media only screen and (max-width: 767px) {
-        .wavespunks-logo {
-            margin-left: 60px;
-        }
-
-        .wavespunks-logo > p {
-            margin-left: 20px;
-        }
-
-        .wavespunks-header {
-            flex-direction: column;
-            align-items: center !important;
-        }
-    }
-
-    @media only screen and (max-width: 580px) {
-        .wavespunks-logo {
-            margin-left: 50px !important;
-        }
-
-        .wavespunks-logo > img {
-            width: 200px !important;
-        }
-
-        .wavespunks-logo > p {
-            margin-left: 5px !important;
-        }
-    }
-
-    @media only screen and (max-width: 400px) {
-        .wavespunks-home {
-            margin: 20px !important;
-        }
-    }
-
     button {
         background: #0055FF;
         border: 0;
@@ -261,41 +187,6 @@
 
     .wavespunks-home {
         margin: 40px;
-    }
-
-    .wavespunks-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        margin-left: 40px;
-        margin-right: 40px;
-    }
-
-    .wavespunks-logo {
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 17px;
-    }
-
-    .wavespunks-links {
-        display: flex;
-        align-items: center;
-    }
-
-    .wavespunks-links a, .wavespunks-links a:hover, .wavespunks-links a:active {
-        text-decoration: none;
-        color: black;
-    }
-
-    .wavespunks-links > a {
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 17px;
-        margin: 0px 15px;
-    }
-
-    .wavespunks-links > a:first-child {
-        color: #ED00CC;
     }
 
     .wallet {
