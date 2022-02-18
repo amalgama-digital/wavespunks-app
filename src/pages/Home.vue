@@ -63,6 +63,11 @@
                     </div>
                 </div>
             </div>
+            <div class="wavespunks-roadmap">
+                <a href="/img/roadmap.png">
+                    <img class="border-radius-18" src="/img/roadmap.png" />
+                </a>
+            </div>
             <div class="wavespunks-how-to-mint border-radius-18">
                 <div>
                     <h2>HOW TO MINT</h2>
@@ -965,6 +970,19 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+    }
+
+    .wavespunks-roadmap {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .wavespunks-roadmap > a > img {
+        box-shadow: 2px 2px 2px 0px rgb(206, 206, 206), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+        margin-top: 170px;
+        overflow: hidden;
+        max-width: 1200px;
     }
 
     .wavespunks-how-to-mint {
