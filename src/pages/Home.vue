@@ -190,15 +190,18 @@
                     <p>DON’T&nbsp;MISS<br>THE&nbsp;TOKENIZED&nbsp;FUTURE</p>
                     <button @click="login" v-if="punks_supply <= 999">Mint a Waves Punk</button>
                     <div class="wavespunks-links">
+                        <a id="twitter" target="_blank" href="https://twitter.com/WavesPunks">
+                            <img width="35" src="/img/twitter-footer.svg">
+                        </a>
                         <a id="discord" target="_blank" href="https://discord.gg/gfpKDfRtvf">
                             <img src="/img/discord-footer.svg">
                         </a>
                         <a id="telegram" target="_blank" href="https://t.me/wavespunks_en">
                             <img src="/img/telegram-footer.svg">
                         </a>
-                        <a id="instagram" target="_blank" href="https://instagram.com/waves.punks">
+                        <!-- <a id="instagram" target="_blank" href="https://instagram.com/waves.punks">
                             <img src="/img/instagram-footer.svg">
-                        </a>
+                        </a> -->
                     </div>
                 </div>
                 <div>

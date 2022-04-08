@@ -8,8 +8,11 @@
         <div class="wavespunks-links">
             <a v-if="itMyPunks" href="/myPunks" style="color: #ED00CC;">MY PUNKS</a>
             <a v-else href="/myPunks">MY PUNKS</a>
-            <a id="reddit" target="_blank" href="https://www.reddit.com/r/WavesPunks/">
+            <!-- <a id="reddit" target="_blank" href="https://www.reddit.com/r/WavesPunks/">
                 <img src="/img/reddit.svg">
+            </a> -->
+            <a id="twitter" target="_blank" href="https://twitter.com/WavesPunks">
+                <img width="46" src="/img/twitter.svg">
             </a>
             <a id="discord" target="_blank" href="https://discord.gg/gfpKDfRtvf">
                 <img src="/img/discord.svg">
