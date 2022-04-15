@@ -981,11 +981,17 @@
         justify-content: center;
     }
 
+    .wavespunks-roadmap > a {
+        width: 100%;
+        text-align: center;
+    }
+
     .wavespunks-roadmap > a > img {
         box-shadow: 2px 2px 2px 0px rgb(206, 206, 206), -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
         margin-top: 170px;
         overflow: hidden;
         max-width: 1200px;
+        width: 100%;
     }
 
     .wavespunks-how-to-mint {
