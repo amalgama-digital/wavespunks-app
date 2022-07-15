@@ -7,7 +7,8 @@
                     <p>CRYPTO CHRONICLES</p>
                 </div>
                 <div class="wavespunks-links">
-                    <a href="/myPunks">MY PUNKS</a>
+                    <!-- <a href="/myPunks">MY PUNKS</a> -->
+                    <a href="https://mypunks.wavespunks.com/">MY PUNKS</a>
                     <a id="discord" target="_blank" href="https://discord.gg/gfpKDfRtvf">
                         <img src="/img/discord.svg">
                     </a>
@@ -128,7 +129,7 @@
                     <img src="/img/future-head.svg">
                 </div>
             </div>
-            <div class="wavespunks-upcoming">
+            <!-- <div class="wavespunks-upcoming">
                 <h2>UPCOMING&nbsp;NFT<br>COLLECTIONS</h2>
                 <div class="wavespunks-upcoming-four">
                     <div class="wavespunks-current-collection border-radius-18">
@@ -155,7 +156,7 @@
                         <p>coming<br>soon</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="wavespunks-join-the-global">
                 <h2>JOIN&nbsp;THE&nbsp;GLOBAL<br>PUNKS&nbsp;MOVEMENT</h2>
                 <div>
