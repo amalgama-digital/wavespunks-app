@@ -15,7 +15,7 @@
                     <a id="telegram" target="_blank" href="https://t.me/wavespunks_en">
                         <img src="/img/telegram.svg">
                     </a>
-                    <a id="instagram" target="_blank" href="https://instagram.com/waves.punks">
+                    <a id="instagram" target="_blank" href="https://instagram.com/waves_punks">
                         <img src="/img/instagram.svg">
                     </a>
                 </div>
@@ -187,7 +187,7 @@
                         <a id="telegram" target="_blank" href="https://t.me/wavespunks_en">
                             <img src="/img/telegram-footer.svg">
                         </a>
-                        <a id="instagram" target="_blank" href="https://instagram.com/waves.punks">
+                        <a id="instagram" target="_blank" href="https://instagram.com/waves_punks">
                             <img src="/img/instagram-footer.svg">
                         </a>
                     </div>
